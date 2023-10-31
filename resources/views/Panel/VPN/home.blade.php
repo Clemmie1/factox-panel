@@ -215,6 +215,8 @@
 
 @include('Panel.VPN.createVpn')
 
+@include('HeaderInfo.open')
+
 @stack('footer-scripts')
 
 </body>

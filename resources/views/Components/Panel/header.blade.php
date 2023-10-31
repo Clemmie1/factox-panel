@@ -22,6 +22,12 @@
             <div class="d-flex align-items-stretch flex-shrink-0">
 
                 <div class="d-flex align-items-center ms-1 ms-lg-3">
+                    <a id="openSupportInfo" class="btn btn-color-gray-800 btn-icon btn-active-light-primary w-30px h-30px w-md-40px h-md-40px">
+                        <i class="fa-duotone fa-circle-info fs-2"></i>
+                    </a>
+                </div>
+
+                <div class="d-flex align-items-center ms-1 ms-lg-3">
                     <!--begin::Menu toggle-->
                     <a href="#" class="btn btn-color-gray-800 btn-icon btn-active-light-primary w-30px h-30px w-md-40px h-md-40px" data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
                         <i class="fa-duotone fa-moon-stars  fs-2"></i>
