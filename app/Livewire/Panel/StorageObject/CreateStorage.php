@@ -7,6 +7,7 @@ use App\Livewire\Panel\Account\UpdateEmail;
 use App\Models\Invoice;
 use App\Models\ObjectStorage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
@@ -70,6 +71,9 @@ class CreateStorage extends Component
 
     public function render()
     {
-        return view('livewire.panel.storage-object.create-storage');
+        $data = json_decode(Storage::get('price/ObjectStorage.json'), true);
+        return view('livewire.panel.storage-object.create-storage', [
+            'dataPrice' => $data
+        ]);
     }
 }

@@ -28,30 +28,21 @@
             <div class="mb-5 mt-10">
                 <label for="exampleFormControlInput1" class="required form-label">Расположение VPN</label>
                 <div class="row">
-                    <div class="col-sm">
-                        <input wire:model.live="location" value="ca" type="radio" class="btn-check"   id="kt_radio_buttons_2_option_1"/>
-                        <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center" for="kt_radio_buttons_2_option_1">
-                            <div class="symbol symbol-50px">
-                                <img class="fs-4x me-4" src="https://flagicons.lipis.dev/flags/4x3/ca.svg">
-                            </div>
-                            <span class="d-block fw-semibold text-start">
-                            <span class="text-dark fw-bold d-block fs-3">Canada</span>
-                            <span class="text-muted d-block fs-6">CA</span>
+                    @foreach($dataPrice['location'] as $list)
+                        <div class="col-sm">
+                            <input wire:model.live="location" value="{{ $list['id'] }}" type="radio" class="btn-check"   id="{{ $list['id'] }}"/>
+                            <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center" for="{{ $list['id'] }}">
+                                <div class="symbol symbol-50px">
+                                    <img class="fs-4x me-4" src="{{ $list['location_img'] }}">
+                                </div>
+                                <span class="d-block fw-semibold text-start">
+                            <span class="text-dark fw-bold d-block fs-3">{{ $list['label'] }}</span>
+                            <span class="text-muted d-block fs-6">{{ $list['id'] }}</span>
                         </span>
-                        </label>
-                    </div>
-                    <div class="col-sm">
-                        <input wire:model.live="location" value="de" type="radio" class="btn-check" id="kt_radio_buttons_2_option_2"/>
-                        <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center" for="kt_radio_buttons_2_option_2">
-                            <div class="symbol symbol-50px">
-                                <img class="fs-4x me-4" src="https://flagicons.lipis.dev/flags/4x3/de.svg">
-                            </div>
-                            <span class="d-block fw-semibold text-start">
-                            <span class="text-dark fw-bold d-block fs-3">Germany</span>
-                            <span class="text-muted d-block fs-6">DE</span>
-                        </span>
-                        </label>
-                    </div>
+                            </label>
+                        </div>
+                    @endforeach
+
                 </div>
                 @error('location')
                     <p class="mt-1 text-danger">
@@ -67,9 +58,9 @@
                 <div>
                     <div wire:ignore>
                         <select class="form-select form-select-solid" name="traffic" wire:model.live="traffic" id="traffic" data-control="select2" data-hide-search="true">
-                            <option value="1" selected>1 GB</option>
-                            <option value="100">100 GB</option>
-                            <option value="10000">10 TB</option>
+                            @foreach($dataPrice['traffic'] as $list)
+                                <option value="{{ $list['traffic_gb'] }}">{{ $list['label'] }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

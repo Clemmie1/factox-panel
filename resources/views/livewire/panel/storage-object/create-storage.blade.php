@@ -25,7 +25,17 @@
         <div class="py-5 mb-5">
             <label for="exampleFormControlInput1" class="required form-label">Уровень хранилища по умолчанию</label>
             <div class="rounded border p-10">
-                <div class="mb-10">
+                @foreach($dataPrice['storageTier'] as $list)
+                    <div class="mb-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="{{ $list['type'] }}" id="flexCheckDefault1" wire:model.live="typeBucket" name="radio2" checked="">
+                            <label class="form-check-label" for="flexCheckDefault1">
+                                {{ $list['label'] }}
+                            </label>
+                        </div>
+                    </div>
+                @endforeach
+                {{--<div class="mb-10">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" value="s" id="flexCheckDefault1" wire:model.live="typeBucket" name="radio2" checked="">
                         <label class="form-check-label" for="flexCheckDefault1">
@@ -41,7 +51,7 @@
                             Архив
                         </label>
                     </div>
-                </div>
+                </div>--}}
             </div>
             @error('typeBucket')
             <p class="mt-3 text-danger">
@@ -58,32 +68,16 @@
         <div class="py-5 mb-5">
             <label for="exampleFormControlInput1" class="required form-label">Хранилище данных</label>
             <div class="rounded border p-10">
-                <div class="mb-10">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="" disabled checked="">
-                        <label class="form-check-label" for="1">
-                            20 ГБ
-                        </label>
+                @foreach($dataPrice['dataStore'] as $list)
+                    <div class="mb-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="{{ $list['object_gb'] }}">
+                            <label class="form-check-label" for="1">
+                                {{ $list['label'] }}
+                            </label>
+                        </div>
                     </div>
-                </div>
-
-                <div class="mb-10">
-                    <div class="form-check">
-                        <input class="form-check-input" disabled type="radio" value="">
-                        <label class="form-check-label" for="2">
-                            100 ГБ
-                        </label>
-                    </div>
-                </div>
-
-                <div class="mb-0">
-                    <div class="form-check">
-                        <input class="form-check-input" disabled type="radio" value="">
-                        <label class="form-check-label" for="3">
-                            200 ГБ
-                        </label>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -104,8 +98,8 @@
                 </button>
                 <button class="btn bg-body" data-kt-drawer-dismiss="true">Отмена</button>
             </div>
-            <span wire:ignore style="cursor: help" class="d-flex justify-content-end text-gray-600 fs-3" data-bs-toggle="popover" data-bs-dismiss="true" title="Расчет стоимости" data-bs-html="true" data-bs-content="Хранилище: 20 ₽/мес">20 ₽/мес
-            </span>
+            {{--<span wire:ignore style="cursor: help" class="d-flex justify-content-end text-gray-600 fs-3" data-bs-toggle="popover" data-bs-dismiss="true" title="Расчет стоимости" data-bs-html="true" data-bs-content="Хранилище: 20 ₽/мес">20 ₽/мес
+            </span>--}}
         </div>
     </div>
 </div>

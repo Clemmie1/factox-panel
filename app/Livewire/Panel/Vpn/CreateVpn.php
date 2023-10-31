@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Panel\Vpn;
 
+use Illuminate\Support\Facades\Storage;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 
@@ -32,6 +33,9 @@ class CreateVpn extends Component
 
     public function render()
     {
-        return view('livewire.panel.vpn.create-vpn');
+        $data = json_decode(Storage::get('price/VPN.json'), true);
+        return view('livewire.panel.vpn.create-vpn', [
+            'dataPrice' => $data
+        ]);
     }
 }

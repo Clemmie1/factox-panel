@@ -12,8 +12,8 @@ use App\Http\Controllers\OCI\AI\LanguageTranslation;
 Route::domain('cloud.' . env('APP_URL'))->group(function () {
     Route::get('/gen', function () {
 
-        $file = St
-
+        $data = json_decode(Storage::get('price/VPN.json'), true);
+        return $data ;
     });
 
     Route::get('/', function () {
