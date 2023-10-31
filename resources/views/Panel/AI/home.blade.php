@@ -174,11 +174,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--end::Row-->
                                 </div>
-                                <!--end::Section-->
                             </div>
-                            <!--end::Card Body-->
                         </div>
                     </div>
                 </div>
