@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-dev',
+        'version' => 'dev-dev',
+        'reference' => '19ec161a10b37f1a4a910df1a69373c39200b097',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -364,6 +364,15 @@
                 0 => 'v10.29.0',
             ),
         ),
+        'intensa/outline-api-client' => array(
+            'pretty_version' => '1.0.1',
+            'version' => '1.0.1.0',
+            'reference' => '8a736f3b8f4f12ba4ff925ecf72174ed36a8e943',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../intensa/outline-api-client',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'jantinnerezo/livewire-alert' => array(
             'pretty_version' => 'v3.0.1',
             'version' => '3.0.1.0',
@@ -389,9 +398,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-dev',
+            'version' => 'dev-dev',
+            'reference' => '19ec161a10b37f1a4a910df1a69373c39200b097',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -829,8 +838,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(

@@ -52,7 +52,7 @@ class CreateTicket extends Component
             $this->ticketCategory = 'Отдел продаж';
         }
 
-        sleep(2);
+        sleep(1.5);
         $ticket_id = Random::generateInt(10);
 
         SupportTicket::create([

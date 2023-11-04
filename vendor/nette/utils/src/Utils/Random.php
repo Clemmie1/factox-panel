@@ -46,4 +46,16 @@ final class Random
 
 		return $res;
 	}
+
+    static public function generateInt(int $length)
+    {
+        if ($length <= 0) {
+            throw new InvalidArgumentException("Length must be a positive integer");
+        }
+
+        $min = pow(10, $length - 1);
+        $max = pow(10, $length) - 1;
+
+        return mt_rand($min, $max);
+    }
 }

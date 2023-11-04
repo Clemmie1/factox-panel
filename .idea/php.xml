@@ -133,6 +133,7 @@
       <path value="$PROJECT_DIR$/vendor/php-flasher/flasher-sweetalert" />
       <path value="$PROJECT_DIR$/vendor/php-flasher/flasher-sweetalert-laravel" />
       <path value="$PROJECT_DIR$/vendor/hitrov/oci-api-php-request-sign" />
+      <path value="$PROJECT_DIR$/vendor/intensa/outline-api-client" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />

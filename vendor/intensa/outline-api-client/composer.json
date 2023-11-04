@@ -1,0 +1,21 @@
+{
+    "name": "intensa/outline-api-client",
+    "description": "A simple API client for OutlineVPN written in PHP",
+    "keywords": ["outlinevpn","outline php"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivan Shishkin",
+            "email": "i.shishkin@intensa.ru"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"OutlineApiClient\\": "src/"}
+    },
+    "require": {
+        "php": ">=7.4",
+        "guzzlehttp/guzzle": "^7.0",
+        "ext-json": "*"
+    }
+}

@@ -9,6 +9,7 @@
         "ext-curl": "*",
         "guzzlehttp/guzzle": "^7.2",
         "hitrov/oci-api-php-request-sign": "^1.2",
+        "intensa/outline-api-client": "^1.0",
         "jantinnerezo/livewire-alert": "^3.0@beta",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",

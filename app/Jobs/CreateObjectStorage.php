@@ -32,7 +32,7 @@ class CreateObjectStorage implements ShouldQueue
     public function handle(): void
     {
 
-        sleep(30);
+        sleep(10);
         $signer = new Signer(
             'ocid1.tenancy.oc1..aaaaaaaas3pyu6kxrchyx2tbljml3fzsltiig7e3hpujk5hvqjl4x46qzata',
             'ocid1.user.oc1..aaaaaaaapurduq4fvmy576w6euo5vc5d6pcxcbciq7jgfg7seqdf23zv7h3a',
@@ -66,7 +66,7 @@ class CreateObjectStorage implements ShouldQueue
 
         curl_setopt_array($curl, $curlOptions);
         curl_exec($curl);
-        sleep(5);
+        sleep(1);
         ObjectStorage::where('bucket_id', $this->bucketID)->update([
             'status' => 2
         ]);

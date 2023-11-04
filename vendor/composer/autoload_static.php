@@ -20,10 +20,11 @@ class ComposerStaticInita9cf9a354c5f6badc4b686c53b343c78
         '662a729f963d39afe703c9d9b7ab4a8c' => __DIR__ . '/..' . '/symfony/polyfill-php83/bootstrap.php',
         'da91a01b5badbe5394c83814ef5982ea' => __DIR__ . '/..' . '/php-flasher/flasher/helpers.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '3bd81c9b8fcc150b69d8b63b4d2ccf23' => __DIR__ . '/..' . '/spatie/flare-client-php/src/helpers.php',
         '35a6ad97d21e794e7e22a17d806652e4' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Functions.php',
-        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '09f6b20656683369174dd6fa83b7e5fb' => __DIR__ . '/..' . '/symfony/polyfill-uuid/bootstrap.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '47e1160838b5e5a10346ac4084b58c23' => __DIR__ . '/..' . '/laravel/prompts/src/helpers.php',
         '40275907c8566c390185147049ef6e5d' => __DIR__ . '/..' . '/livewire/livewire/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
@@ -31,7 +32,6 @@ class ComposerStaticInita9cf9a354c5f6badc4b686c53b343c78
         '0b21c08a423927dd59eca6fa3c1f5521' => __DIR__ . '/..' . '/php-flasher/flasher-sweetalert/helpers.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '265b4faa2b3a9766332744949e83bf97' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/helpers.php',
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
@@ -111,6 +111,10 @@ class ComposerStaticInita9cf9a354c5f6badc4b686c53b343c78
             'Psr\\Clock\\' => 10,
             'PhpParser\\' => 10,
             'PhpOption\\' => 10,
+        ),
+        'O' => 
+        array (
+            'OutlineApiClient\\' => 17,
         ),
         'N' => 
         array (
@@ -398,6 +402,10 @@ class ComposerStaticInita9cf9a354c5f6badc4b686c53b343c78
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
+        'OutlineApiClient\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/intensa/outline-api-client/src',
+        ),
         'NunoMaduro\\Collision\\' => 
         array (
             0 => __DIR__ . '/..' . '/nunomaduro/collision/src',
@@ -586,6 +594,7 @@ class ComposerStaticInita9cf9a354c5f6badc4b686c53b343c78
         'App\\Http\\Controllers\\OCI\\ObjectStorage\\DeleteBucket' => __DIR__ . '/../..' . '/app/Http/Controllers/OCI/ObjectStorage/DeleteBucket.php',
         'App\\Http\\Controllers\\OCI\\ObjectStorage\\ListObjects' => __DIR__ . '/../..' . '/app/Http/Controllers/OCI/ObjectStorage/ListObjects.php',
         'App\\Http\\Controllers\\OracleObjectStorageController' => __DIR__ . '/../..' . '/app/Http/Controllers/OracleObjectStorageController.php',
+        'App\\Http\\Controllers\\VPNca' => __DIR__ . '/../..' . '/app/Http/Controllers/VPNca.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -621,6 +630,7 @@ class ComposerStaticInita9cf9a354c5f6badc4b686c53b343c78
         'App\\Livewire\\Panel\\Support\\CreateTicket' => __DIR__ . '/../..' . '/app/Livewire/Panel/Support/CreateTicket.php',
         'App\\Livewire\\Panel\\Support\\LoadTicketComments' => __DIR__ . '/../..' . '/app/Livewire/Panel/Support/LoadTicketComments.php',
         'App\\Livewire\\Panel\\Support\\LoadTickets' => __DIR__ . '/../..' . '/app/Livewire/Panel/Support/LoadTickets.php',
+        'App\\Livewire\\Panel\\Vpn\\CreateVpn' => __DIR__ . '/../..' . '/app/Livewire/Panel/Vpn/CreateVpn.php',
         'App\\Livewire\\Test' => __DIR__ . '/../..' . '/app/Livewire/Test.php',
         'App\\Mail\\Auth\\Welcome' => __DIR__ . '/../..' . '/app/Mail/Auth/Welcome.php',
         'App\\Mail\\Support\\ClosedTicket' => __DIR__ . '/../..' . '/app/Mail/Support/ClosedTicket.php',
@@ -3923,6 +3933,11 @@ class ComposerStaticInita9cf9a354c5f6badc4b686c53b343c78
         'NunoMaduro\\Collision\\Provider' => __DIR__ . '/..' . '/nunomaduro/collision/src/Provider.php',
         'NunoMaduro\\Collision\\SolutionsRepositories\\NullSolutionsRepository' => __DIR__ . '/..' . '/nunomaduro/collision/src/SolutionsRepositories/NullSolutionsRepository.php',
         'NunoMaduro\\Collision\\Writer' => __DIR__ . '/..' . '/nunomaduro/collision/src/Writer.php',
+        'OutlineApiClient\\Exceptions\\OutlineApiException' => __DIR__ . '/..' . '/intensa/outline-api-client/src/Exceptions/OutlineApiException.php',
+        'OutlineApiClient\\Exceptions\\OutlineKeyException' => __DIR__ . '/..' . '/intensa/outline-api-client/src/Exceptions/OutlineKeyException.php',
+        'OutlineApiClient\\Exceptions\\OutlineKeyNotFoundException' => __DIR__ . '/..' . '/intensa/outline-api-client/src/Exceptions/OutlineKeyNotFoundException.php',
+        'OutlineApiClient\\OutlineApiClient' => __DIR__ . '/..' . '/intensa/outline-api-client/src/OutlineApiClient.php',
+        'OutlineApiClient\\OutlineKey' => __DIR__ . '/..' . '/intensa/outline-api-client/src/OutlineKey.php',
         'Override' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/Override.php',
         'PHPUnit\\Event\\Application\\Finished' => __DIR__ . '/..' . '/phpunit/phpunit/src/Event/Events/Application/Finished.php',
         'PHPUnit\\Event\\Application\\FinishedSubscriber' => __DIR__ . '/..' . '/phpunit/phpunit/src/Event/Events/Application/FinishedSubscriber.php',

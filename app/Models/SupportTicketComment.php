@@ -9,7 +9,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class SupportTicketComment extends Model
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, Notifiable;
 
     /**
      * The attributes that are mass assignable.

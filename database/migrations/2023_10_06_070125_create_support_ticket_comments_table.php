@@ -11,13 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('support_ticket_comments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ticket_id')->references('ticket_id')->on('support_tickets');
+
+            $table->unsignedBigInteger('ticket_id');
+//            $table->foreign('ticket_id')->references('ticket_id')->on('support_tickets');
+
             $table->integer('is_user')->default(0);
             $table->text('msg');
             $table->timestamps();
         });
+
+        /*Schema::table('support_ticket_comments', function (Blueprint $table) {
+            $table->foreign('ticket_id')->references('id')->on('support_tickets');
+        });*/
+
     }
 
     /**

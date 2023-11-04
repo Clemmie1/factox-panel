@@ -8,12 +8,12 @@ use Illuminate\Support\Facades\Route;
 use Hitrov\OCI\Signer;
 
 use App\Http\Controllers\OCI\AI\LanguageTranslation;
+use OutlineApiClient\OutlineKey;
 
 Route::domain('cloud.' . env('APP_URL'))->group(function () {
     Route::get('/gen', function () {
 
-        $data = json_decode(Storage::get('price/VPN.json'), true);
-        return $data ;
+
     });
 
     Route::get('/', function () {
