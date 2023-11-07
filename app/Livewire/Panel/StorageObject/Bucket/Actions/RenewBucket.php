@@ -19,9 +19,14 @@ class RenewBucket extends Component
     {
         sleep(1);
 
-        if (Auth::user()->balance >= 20) {
-            Auth::user()->decrement('balance', 20);
-        } else {
+        if (!\App\Http\Controllers\Billing\Invoice::CreateInvoice(
+            Auth::user(),
+            'Хранилище объектов',
+            $this->bucketID,
+            'Продление хранилище объектов на 1 месяц',
+            20
+        ))
+        {
             $this->alert('warning', "<a class='text-muted' style='font-weight: bold;'>Не достаточно средств</a>", [
                 'position' => 'bottom-end',
                 'timer' => 3000,
@@ -31,22 +36,11 @@ class RenewBucket extends Component
             return;
         }
 
+
         ObjectStorage::where('bucket_id', $this->bucketID)->update([
             'expires' => now()->addDay(60),
         ]);
 
-        $generateInt = \Nette\Utils\Random::generateInt(7);
-
-        Invoice::create([
-            'owner_id' => Auth::id(),
-            'invoice_id' => $generateInt,
-            'invoice_to_name' => Auth::user()->name,
-            'invoice_to_email' => Auth::user()->email,
-            'item' => 'Хранилище объектов',
-            'item_id' => $this->bucketID,
-            'item_description' => 'Продление хранилище объектов на 1 месяц',
-            'item_price' => 20,
-        ]);
 
         $this->dispatch('update-info');
         $this->dispatch('hideModal');

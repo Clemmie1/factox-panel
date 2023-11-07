@@ -30,9 +30,17 @@ class CreateStorage extends Component
         $this->validate();
         sleep(2);
 
-        if (Auth::user()->balance >= 20) {
-            Auth::user()->decrement('balance', 20);
-        } else {
+        $genIdBucket = 'bucket-'.Random::generate();
+
+
+        if (!\App\Http\Controllers\Billing\Invoice::CreateInvoice(
+            Auth::user(),
+            'Хранилище объектов',
+            $genIdBucket,
+            'Создание хранилище объектов',
+            20
+        ))
+        {
             $this->alert('warning', "<a class='text-muted' style='font-weight: bold;'>Не достаточно средств</a>", [
                 'position' => 'bottom-end',
                 'timer' => 3000,
@@ -42,18 +50,6 @@ class CreateStorage extends Component
             return;
         }
 
-        $genIdBucket = 'bucket-'.Random::generate();
-        $generateInt = \Nette\Utils\Random::generateInt(7);
-        Invoice::create([
-            'owner_id' => Auth::id(),
-            'invoice_id' => $generateInt,
-            'invoice_to_name' => Auth::user()->name,
-            'invoice_to_email' => Auth::user()->email,
-            'item' => 'Хранилище объектов',
-            'item_id' => $genIdBucket,
-            'item_description' => 'Создание хранилище объектов',
-            'item_price' => 20,
-        ]);
 
         ObjectStorage::create([
             'owner_id' => Auth::id(),

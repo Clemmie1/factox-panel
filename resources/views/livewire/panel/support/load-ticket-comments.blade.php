@@ -78,11 +78,11 @@
     @if($ticketData->ticket_status == 0 || $ticketData->ticket_status == 1)
 
         <div>
-            <button style="height: 52px" wire:click="closeTicket" wire:loading.remove="closeTicket" class="btn btn-secondary mt-3 w-100 text-uppercase">
+            <button style="height: 52px" wire:click="closeTicket" wire:loading.remove="closeTicket" wire:target="closeTicket" class="btn btn-secondary mt-3 w-100 text-uppercase">
                 Закрыть заявку
             </button>
 
-            <button wire:loading="closeTicket" style="height: 52px" class="btn btn-secondary mt-3 w-100 text-uppercase disabledNweb" disabled>
+            <button wire:loading="closeTicket" wire:target="closeTicket" style="height: 52px" class="btn btn-secondary mt-3 w-100 text-uppercase disabledNweb" disabled>
                 <div class="col" style="display: flex; justify-content: center; align-items: center;">
                     <div class="sk-wave">
                         <div class="sk-wave-rect"></div>
@@ -95,10 +95,18 @@
             </button>
         </div>
 
-        <div class="mb-0" wire:loading.remove="closeTicket">
-            <textarea class="mt-3 form-control form-control-solid placeholder-gray-600 fw-bold fs-4 ps-9 pt-7" wire:model.live="msg" rows="6" placeholder="Введите сообщение"></textarea>
-            <button wire:click="sendComment" class="btn btn-primary mt-n20 mb-20 position-relative float-end me-7">Отправить</button>
-            <!--end::Submit-->
+        <div>
+            <div class="mb-0" wire:loading.remove="closeTicket" wire:target="closeTicket">
+                <textarea class="mt-3 form-control form-control-solid placeholder-gray-600 fw-bold fs-4 ps-9 pt-7" wire:model.live="msg" rows="6" placeholder="Введите сообщение"></textarea>
+                <button wire:click="sendComment" class="btn btn-primary mt-n20 mb-20 position-relative float-end me-7">Отправить</button>
+                <!--end::Submit-->
+            </div>
+            <div class="d-flex flex-column mt-6">
+                <li class="d-flex align-items-center py-2">
+                    <span class="bullet text-warning bullet-line h-20px w-6px rounded-1 bg-warning me-3"></span>
+                    <span class="text-muted">Помните, что Поддержка никогда не попросит данные вашего аккаунта, они ей просто не нужны.</span>
+                </li>
+            </div>
         </div>
     @elseif($ticketData->ticket_status == 2)
         <div class="alert alert-success d-flex align-items-center p-5">
