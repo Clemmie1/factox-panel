@@ -25,10 +25,25 @@ class CreateStorage extends Component
     #[Rule('required', message: 'Тип сегмента', onUpdate: true)]
     public $typeBucket;
 
+    #[Rule('required', message: 'Тип Хранилище данных', onUpdate: true)]
+    public $typeStorage;
+
+    public $price = 0;
+    public $gb;
+
+
+    public function getItemPrice($index){
+        $data = json_decode(Storage::get('price/ObjectStorage.json'), true);
+        if (isset($data['dataStore'][$index]['price'])) {
+            $this->price = $data['dataStore'][$index]['price'];
+            $this->gb = $data['dataStore'][$index]['label'];
+        }
+    }
+
     public function createBucket()
     {
         $this->validate();
-        sleep(2);
+        sleep(1);
 
         $genIdBucket = 'bucket-'.Random::generate();
 
@@ -37,8 +52,8 @@ class CreateStorage extends Component
             Auth::user(),
             'Хранилище объектов',
             $genIdBucket,
-            'Создание хранилище объектов',
-            20
+            'Создание хранилище объектов ' . $this->gb,
+            $this->price
         ))
         {
             $this->alert('warning', "<a class='text-muted' style='font-weight: bold;'>Не достаточно средств</a>", [

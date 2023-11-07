@@ -68,10 +68,10 @@
         <div class="py-5 mb-5">
             <label for="exampleFormControlInput1" class="required form-label">Хранилище данных</label>
             <div class="rounded border p-10">
-                @foreach($dataPrice['dataStore'] as $list)
+                @foreach($dataPrice['dataStore'] as $index => $list)
                     <div class="mb-10">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" value="{{ $list['object_gb'] }}">
+                            <input class="form-check-input" wire:model.live="typeStorage" type="radio" value="{{ $list['object_gb'] }}" wire:click="getItemPrice({{$index}})">
                             <label class="form-check-label" for="1">
                                 {{ $list['label'] }}
                             </label>
@@ -79,6 +79,11 @@
                     </div>
                 @endforeach
             </div>
+            @error('typeStorage')
+            <p class="mt-3 text-danger">
+                {{$message}}
+            </p>
+            @enderror()
         </div>
     </div>
     <div class="card-footer">
