@@ -17,24 +17,27 @@
             <label for="exampleFormControlInput1" class="required form-label">Имя сегмента</label>
             <input type="email" class="form-control form-control-solid @error('nameBucket') is-invalid @enderror" placeholder="Введите имя сегмента" wire:model.live="nameBucket" value="bucket-43242-8746"/>
             @error('nameBucket')
-            <p class="mt-3 text-danger">
+            <p class="mt-0 text-danger">
                 {{$message}}
             </p>
             @enderror()
         </div>
         <div class="py-5 mb-5">
             <label for="exampleFormControlInput1" class="required form-label">Уровень хранилища по умолчанию</label>
-            <div class="rounded border p-10">
-                @foreach($dataPrice['storageTier'] as $list)
-                    <div class="mb-10">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" value="{{ $list['type'] }}" id="flexCheckDefault1" wire:model.live="typeBucket" name="radio2" checked="">
-                            <label class="form-check-label" for="flexCheckDefault1">
-                                {{ $list['label'] }}
-                            </label>
+            <div class="rounded border p-6">
+                <div class="row">
+                    @foreach($dataPrice['storageTier'] as $list)
+                        <div class="py-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="{{ $list['type'] }}" id="flexCheckDefault1" wire:model.live="typeBucket" name="radio2" checked="">
+                                <label class="form-check-label" for="flexCheckDefault1">
+                                    {{ $list['label'] }}
+                                </label>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
+
                 {{--<div class="mb-10">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" value="s" id="flexCheckDefault1" wire:model.live="typeBucket" name="radio2" checked="">
@@ -54,7 +57,7 @@
                 </div>--}}
             </div>
             @error('typeBucket')
-            <p class="mt-3 text-danger">
+            <p class="mt-0 text-danger">
                 {{$message}}
             </p>
             @enderror()
@@ -67,20 +70,22 @@
         </div>
         <div class="py-5 mb-5">
             <label for="exampleFormControlInput1" class="required form-label">Хранилище данных</label>
-            <div class="rounded border p-10">
-                @foreach($dataPrice['dataStore'] as $index => $list)
-                    <div class="mb-10">
-                        <div class="form-check">
-                            <input class="form-check-input" wire:model.live="typeStorage" type="radio" value="{{ $list['object_gb'] }}" wire:click="getItemPrice({{$index}})">
-                            <label class="form-check-label" for="1">
-                                {{ $list['label'] }}
-                            </label>
+            <div class="rounded border p-6">
+                <div class="row">
+                    @foreach($dataPrice['dataStore'] as $index => $list)
+                        <div class="py-3">
+                            <div class="form-check">
+                                <input class="form-check-input" wire:model.live="typeStorage" type="radio" value="{{ $list['object_gb'] }}" wire:click="getItemPrice({{$index}})">
+                                <label class="form-check-label" for="1">
+                                    {{ $list['label'] }}
+                                </label>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
             @error('typeStorage')
-            <p class="mt-3 text-danger">
+            <p class="mt-0 text-danger">
                 {{$message}}
             </p>
             @enderror()

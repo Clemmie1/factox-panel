@@ -14,31 +14,16 @@ use Nette\Utils\Random;
 class CreateTicket extends Component
 {
 
-
     use LivewireAlert;
-    #[Rule([
-        'ticketTheme' => 'required',
-    ],
-        message: [
-            'required' => 'Введите тему обращения',
-        ],
-        onUpdate: true
-    )]
+
+    #[Rule('required', message: 'Введите тему обращения', onUpdate: true)]
     public $ticketTheme;
 
-    #[Rule([
-        'ticketMsg' => 'required',
-    ],
-        message: [
-            'required' => 'Введите текст обращения',
-        ],
-        onUpdate: true
-    )]
+    #[Rule('required', message: 'Введите текст обращения', onUpdate: true)]
     public $ticketMsg;
 
     public $ticketPriority;
     public $ticketCategory;
-
 
     public function createTicket()
     {

@@ -45,7 +45,7 @@
         <div class="mb-7">
             <label for="exampleFormControlInput1" class="required form-label">Комментарий обращения</label>
             <div class="form-select-solid">
-                <textarea class="form-control form-control form-control-solid" wire:model.live="ticketMsg" placeholder="Введите текст сюда" style="height: 100px"></textarea>
+                <textarea class="@error('ticketMsg') is-invalid @enderror form-control form-control form-control-solid" wire:model.live="ticketMsg" placeholder="Введите текст сюда" style="height: 100px"></textarea>
                 @error('ticketMsg') <div class="text-danger mt-1">{{ $message }}</div> @enderror
             </div>
         </div>
