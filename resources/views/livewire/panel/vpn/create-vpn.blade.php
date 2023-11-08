@@ -30,16 +30,18 @@
                 <div class="row">
                     @foreach($dataPrice['location'] as $list)
                         <div class="col-sm">
-                            <input wire:model.live="location" value="{{ $list['id'] }}" type="radio" class="btn-check"   id="{{ $list['id'] }}"/>
-                            <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center" for="{{ $list['id'] }}">
-                                <div class="symbol symbol-50px">
-                                    <img class="fs-4x me-4" src="{{ $list['location_img'] }}">
-                                </div>
-                                <span class="d-block fw-semibold text-start">
-                            <span class="text-dark fw-bold d-block fs-3">{{ $list['label'] }}</span>
-                            <span class="text-muted d-block fs-6">{{ $list['id'] }}</span>
-                        </span>
-                            </label>
+                            <div class="mt-3">
+                                <input wire:model.live="location" value="{{ $list['id'] }}" type="radio" class="btn-check"   id="{{ $list['id'] }}"/>
+                                <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center" for="{{ $list['id'] }}">
+                                    <div class="symbol symbol-50px">
+                                        <img class="fs-4x me-4" src="{{ $list['location_img'] }}">
+                                    </div>
+                                    <span class="d-block fw-semibold text-start">
+                                    <span class="text-dark fw-bold d-block fs-3">{{ $list['label'] }}</span>
+                                    <span class="text-muted d-block fs-6">{{ $list['id'] }}</span>
+                                </span>
+                                </label>
+                            </div>
                         </div>
                     @endforeach
 
@@ -51,18 +53,31 @@
                 @enderror()
             </div>
             <div class="mt-10">
-                <label for="exampleFormControlInput1" class="form-label">Трафик</label>
+                <label for="exampleFormControlInput1" class="required form-label">Трафик</label>
                 <div class="mb-3">
                     <div class="fs-7 fw-semibold text-muted">Максимально допустимая скорость обработки трафика</div>
                 </div>
                 <div>
-                    <div wire:ignore>
-                        <select class="form-select form-select-solid" name="traffic" wire:model.live="traffic" id="traffic" data-control="select2" data-hide-search="true">
-                            @foreach($dataPrice['traffic'] as $list)
-                                <option value="{{ $list['traffic_gb'] }}">{{ $list['label'] }}</option>
+
+                    <div class="rounded border p-6">
+                        <div class="row">
+                            @foreach($dataPrice['traffic'] as $index => $list)
+                                <div class="py-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" wire:model.live="traffic" type="radio" value="{{ $list['traffic_mb'] }}" wire:click="getSelectTraffic({{ $index }})">
+                                        <label class="form-check-label" for="1">
+                                            {{ $list['label'] }}
+                                        </label>
+                                    </div>
+                                </div>
                             @endforeach
-                        </select>
+                        </div>
                     </div>
+                    @error('traffic')
+                    <p class="mt-1 text-danger">
+                        {{$message}}
+                    </p>
+                    @enderror()
                 </div>
             </div>
         </div>

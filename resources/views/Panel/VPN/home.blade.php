@@ -96,111 +96,7 @@
                         </div>
                     </div>--}}
 
-                    <div class="row g-6 g-xl-9">
-
-                        <div class="col-md-6 col-xl-4">
-
-                            <a href="/metronic8/demo18/../demo18/apps/projects/project.html" class="card border-hover-primary ">
-                                <div class="card-header border-0 pt-9">
-                                    <div class="card-title m-0">
-                                        <div class="symbol bg-light-success">
-                                            <i class="las la-network-wired text-success p-3 fs-4x"></i>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-toolbar">
-                                        <span class="badge badge-light-success fw-bold me-auto px-4 py-3 text-uppercase">Активный</span>
-                                    </div>
-
-                                </div>
-
-                                <div class="card-body p-9">
-                                    <div class="fs-3 fw-bold text-dark">
-                                        БД
-                                        <span class="text-muted">
-                                            #321
-                                        </span>
-                                    </div>
-
-                                    <p class="text-gray-400 fw-semibold fs-5 mt-1 mb-7">
-                                        dsadasdsaads
-                                    </p>
-
-                                </div>
-
-                            </a>
-
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-
-                            <a href="/metronic8/demo18/../demo18/apps/projects/project.html" class="card">
-                                <div class="card-header border-0 pt-9">
-                                    <div class="card-title m-0">
-                                        <div class="symbol bg-light-warning">
-                                            <i class="las la-network-wired text-warning p-3 fs-4x"></i>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-toolbar">
-                                        <span class="badge badge-light-warning fw-bold me-auto px-4 py-3 text-uppercase">Установка</span>
-                                    </div>
-
-                                </div>
-
-                                <div class="card-body p-9">
-                                    <div class="fs-3 fw-bold text-dark">
-                                        БД
-                                        <span class="text-muted">
-                                            #1234
-                                        </span>
-                                    </div>
-
-                                    <p class="text-gray-400 fw-semibold fs-5 mt-1 mb-7">
-                                        My cloud test
-                                    </p>
-
-                                </div>
-
-                            </a>
-
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-
-                            <a href="/metronic8/demo18/../demo18/apps/projects/project.html" class="card">
-                                <div class="card-header border-0 pt-9">
-                                    <div class="card-title m-0">
-                                        <div class="symbol bg-light-danger">
-                                            <i class="las la-network-wired text-danger p-3 fs-4x"></i>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-toolbar">
-                                        <span class="badge badge-light-danger fw-bold me-auto px-4 py-3 text-uppercase">Удалён</span>
-                                    </div>
-
-                                </div>
-
-                                <div class="card-body p-9">
-                                    <div class="fs-3 fw-bold text-dark">
-                                        БД
-                                        <span class="text-muted">
-                                            #434
-                                        </span>
-                                    </div>
-
-                                    <p class="text-gray-400 fw-semibold fs-5 mt-1 mb-7">
-                                        My cloud
-                                    </p>
-
-                                </div>
-
-                            </a>
-
-                        </div>
-
-                    </div>
+                    @livewire('panel.vpn.load-vpn')
 
                 </div>
             </div>
@@ -210,6 +106,9 @@
     </div>
 </div>
 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<x-livewire-alert::scripts />
 <script src="{{asset('assets/plugins/global/plugins.bundle.js')}}"></script>
 <script src="{{asset('assets/js/scripts.bundle.js')}}"></script>
 
