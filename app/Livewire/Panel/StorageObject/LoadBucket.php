@@ -13,14 +13,17 @@ class LoadBucket extends Component
 
     public function loadData()
     {
-        sleep(1);
-        $get = ObjectStorage::where('owner_id', Auth::user()->id)->get();
+        $get = ObjectStorage::query()->where([
+            'owner_id' => Auth::user()->id
+        ])->whereIn('status', [2,3,1])->orderByRaw("FIELD(status, 2, 3, 1)")->get();
         $this->data = $get;
     }
 
     public function loadDatas()
     {
-        $get = ObjectStorage::where('owner_id', Auth::user()->id)->get();
+        $get = ObjectStorage::query()->where([
+            'owner_id' => Auth::user()->id
+        ])->whereIn('status', [2,3,1])->orderByRaw("FIELD(status, 2, 3, 1)")->get();
         $this->data = $get;
     }
 

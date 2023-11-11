@@ -39,12 +39,12 @@
 
                     @foreach($listInvoice as $list)
                         <tr>
-                            <th><a href="">{{ $list->invoice_id }}</a></th>
+                            <th><a href="{{route('cloud.bill.viewInvoice', $list->invoice_id)}}" target="_blank">{{ $list->invoice_id }}</a></th>
                             <th>{{ $list->item }}</th>
                             <th>{{ $list->item_description }}</th>
                             <th>{{ $list->item_price }} ₽</th>
                             <th class="text-end">
-                                <a href="#" class="btn btn-sm btn-icon btn-secondary"><i class="las la-print fs-2"></i></a>
+                                <a href="{{route('cloud.bill.viewInvoice', $list->invoice_id)}}" target="_blank" class="btn btn-sm btn-icon btn-secondary"><i class="las la-print fs-2"></i></a>
                             </th>
                         </tr>
                     @endforeach

@@ -45,7 +45,7 @@ class CreateStorage extends Component
         $this->validate();
         sleep(1);
 
-        $genIdBucket = 'bucket-'.Random::generate();
+        $genIdBucket = 'bucket-'.Random::generate(15);
 
 
         if (!\App\Http\Controllers\Billing\Invoice::CreateInvoice(

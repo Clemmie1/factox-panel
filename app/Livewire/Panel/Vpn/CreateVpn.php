@@ -45,11 +45,11 @@ class CreateVpn extends Component
     {
         $this->validate();
 
-        if ($this->location == 'ca' or $this->location == 'de'){
+        if ($this->location == 'ca-toronto' or $this->location == 'de'){
 
             sleep(1);
 
-            $genVpnId = 'vpn-'.Random::generate();
+            $genVpnId = 'vpn-'.Random::generate(15);
 
             if (!\App\Http\Controllers\Billing\Invoice::CreateInvoice(
                 Auth::user(),
@@ -83,6 +83,10 @@ class CreateVpn extends Component
 
     }
 
+    public function closeModel()
+    {
+        return $this->hideAll();
+    }
 
     public function hideAll()
     {

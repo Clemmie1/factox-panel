@@ -41,7 +41,7 @@
                         </div>
                     @elseif($list->status == 2)
                         <div class="col-md-6 col-xl-4" style="cursor: pointer">
-                            <a onclick="location.href=''" class="card border-hover-primary">
+                            <a onclick="location.href='{{route('cloud.vpn.view', $list->vpn_id)}}'" class="card border-hover-primary">
                                 <div class="card-header border-0 pt-9">
                                     <div class="card-title m-0">
                                         <div class="symbol bg-light-success">
@@ -66,6 +66,7 @@
                                 </div>
                             </a>
                         </div>
+
                     @elseif($list->status == 4)
                         <div class="col-md-6 col-xl-4">
                             <a class="card">
@@ -78,6 +79,33 @@
 
                                     <div class="card-toolbar">
                                         <span class="badge badge-light-danger fw-bold me-auto px-4 py-3 text-uppercase">удалён</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="card-body p-9">
+                                    <div class="fs-3 fw-bold text-dark">
+                                        {{$list->vpn_name}}
+                                    </div>
+
+                                    <p class="text-gray-400 fw-semibold fs-5 mt-1 mb-7">
+                                        {{$list->vpn_id}}
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    @elseif($list->status == 3)
+                        <div class="col-md-6 col-xl-4">
+                            <a class="card">
+                                <div class="card-header border-0 pt-9">
+                                    <div class="card-title m-0">
+                                        <div class="symbol bg-light-danger">
+                                            <i class="las la-network-wired text-danger p-3 fs-4x"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-toolbar">
+                                        <span class="badge badge-light-danger fw-bold me-auto px-4 py-3 text-uppercase">приостановлен</span>
                                     </div>
 
                                 </div>

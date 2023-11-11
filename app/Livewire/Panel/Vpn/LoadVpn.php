@@ -14,7 +14,9 @@ class LoadVpn extends Component
 
     public function loadData()
     {
-        $get = Vpn::query()->where('owner_id', Auth::user()->id)->get();
+        $get = Vpn::query()->where([
+            'owner_id' => Auth::user()->id
+        ])->whereIn('status', [2,3,1])->orderByRaw("FIELD(status, 2, 3, 1)")->get();
         $this->data = $get;
     }
 

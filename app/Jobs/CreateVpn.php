@@ -37,7 +37,7 @@ class CreateVpn implements ShouldQueue
     public function handle(): void
     {
         sleep(1);
-        if ($this->location = 'ca'){
+        if ($this->location = 'ca-toronto'){
             sleep(2);
             try {
                 $server = 'https://168.138.70.14:11493/AfHcGvKFa8PY1RduJ1by4Q';

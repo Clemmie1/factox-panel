@@ -152,6 +152,8 @@
                         <!--end::Content-->
                     </div>
 
+
+
                     <div class="card  border-danger">
 
                         <div class="card-header border-1 border-danger cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_deactivate" aria-expanded="true" aria-controls="kt_account_deactivate">

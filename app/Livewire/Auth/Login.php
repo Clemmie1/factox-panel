@@ -49,29 +49,25 @@ class Login extends Component
             'password' => $this->password,
         ];
 
-        if (Auth::attempt($arr)){
-            $user = Auth::user();
-            if (!$user->blocked){
-                Auth::login($user);
-                return $this->redirect(route('cloud.home'));
-            } else {
-                $this->formLogin = false;
-                $this->accountBlocked = true;
-                $this->alert('error', "<a class='text-muted' style='font-weight: bold;'>Ошибка входа в аккаунт</a>", [
-                    'position' => 'bottom-end',
-                    'timer' => 3000,
-                    'width' => '300',
-                    'toast' => true,
-                ]);
-            }
-        } else {
+        if (!Auth::attempt($arr)){
             $this->alert('error', "<a class='text-muted' style='font-weight: bold;'>Неправильные учетные данные</a>", [
                 'position' => 'bottom-end',
                 'timer' => 3000,
                 'width' => '300',
                 'toast' => true,
             ]);
+            return;
         }
+
+        $user = Auth::user();
+        if ($user->blocked){
+            $this->formLogin = false;
+            $this->accountBlocked = true;
+            return;
+        }
+
+        Auth::login($user);
+        return $this->redirect(route('cloud.home'));
 
         /*$this->alert('success', "<a class='text-muted' style='font-weight: bold;'>Проверочный код отправлен</a>", [
             'position' => 'bottom-end',
@@ -87,8 +83,6 @@ class Login extends Component
         $this->validate(
             [
                 'code' => ['required'],
-            ],
-            [
             ],
         );
         sleep(2);

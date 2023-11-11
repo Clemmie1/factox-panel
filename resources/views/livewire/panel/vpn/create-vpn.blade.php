@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="card-toolbar">
-            <div class="btn btn-sm btn-icon btn-active-light-primary" id="kt_drawer_example_basic_close">
+            <div class="btn btn-sm btn-icon btn-active-light-primary" id="kt_drawer_example_basic_close" wire:click="closeModel">
                 <i class="fa-duotone fa-xmark fs-2"></i>
             </div>
         </div>
@@ -29,20 +29,39 @@
                 <label for="exampleFormControlInput1" class="required form-label">Расположение VPN</label>
                 <div class="row">
                     @foreach($dataPrice['location'] as $list)
-                        <div class="col-sm">
-                            <div class="mt-3">
-                                <input wire:model.live="location" value="{{ $list['id'] }}" type="radio" class="btn-check"   id="{{ $list['id'] }}"/>
-                                <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center" for="{{ $list['id'] }}">
-                                    <div class="symbol symbol-50px">
-                                        <img class="fs-4x me-4" src="{{ $list['location_img'] }}">
-                                    </div>
-                                    <span class="d-block fw-semibold text-start">
+
+                        @if($list['active'])
+                            <div class="col-sm">
+                                <div class="mt-3">
+                                    <input wire:model.live="location" value="{{ $list['id'] }}" type="radio" class="btn-check"   id="{{ $list['id'] }}"/>
+                                    <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center" for="{{ $list['id'] }}">
+                                        <div class="symbol symbol-50px">
+                                            <img class="fs-4x me-4" src="{{ $list['location_img'] }}">
+                                        </div>
+                                        <span class="d-block fw-semibold text-start">
                                     <span class="text-dark fw-bold d-block fs-3">{{ $list['label'] }}</span>
                                     <span class="text-muted d-block fs-6">{{ $list['id'] }}</span>
                                 </span>
-                                </label>
+                                    </label>
+                                </div>
                             </div>
-                        </div>
+                            @else
+                            <div class="col-sm">
+                                <div class="mt-3 disabled">
+                                    <input  type="radio" class="btn-check disabled"  disabled/>
+                                    <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-7 d-flex align-items-center" for="{{ $list['id'] }}">
+                                        <div class="symbol symbol-50px">
+                                            <img class="fs-4x me-4" src="{{ $list['location_img'] }}">
+                                        </div>
+                                        <span class="d-block fw-semibold text-start">
+                                    <span class="text-dark fw-bold d-block fs-3">{{ $list['label'] }}</span>
+                                    <span class="text-muted d-block fs-6">{{ $list['id'] }}</span>
+                                </span>
+                                    </label>
+                                </div>
+                            </div>
+                        @endif
+
                     @endforeach
 
                 </div>
@@ -97,7 +116,7 @@
                         </div>
                     </div>
                 </button>
-                <button class="btn bg-body" data-kt-drawer-dismiss="true">Отмена</button>
+                <button class="btn bg-body" data-kt-drawer-dismiss="true" wire:click="closeModel">Отмена</button>
             </div>
 {{--            <span wire:ignore style="cursor: help" class="d-flex justify-content-end text-gray-600 fs-3" data-bs-toggle="popover" data-bs-dismiss="true" title="Расчет стоимости" data-bs-html="true" data-bs-content="Хранилище: 20 ₽/мес">20 ₽/мес--}}
 {{--            </span>--}}
