@@ -1,0 +1,39 @@
+{
+    "available": true,
+
+    "storageTier": [
+        {
+            "id": 1,
+            "type": "s",
+            "label": "Стандартный"
+        },
+        {
+            "id": 2,
+            "type": "a",
+            "label": "Архив"
+        }
+    ],
+
+    "renewPrice": 300.00,
+
+    "dataStore": [
+        {
+            "id": 1,
+            "price": 20.00,
+            "object_gb": 10,
+            "label": "10 ГБ"
+        },
+        {
+            "id": 2,
+            "price": 50.00,
+            "object_gb": 100,
+            "label": "100 ГБ"
+        },
+        {
+            "id": 3,
+            "price": 100.00,
+            "object_gb": 200,
+            "label": "200 ГБ"
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "available": true,
+
+    "location": [
+        {
+            "id": "ca-toronto",
+            "active": true,
+            "label": "Canada",
+            "location_img": "https://flagicons.lipis.dev/flags/4x3/ca.svg"
+        },
+        {
+            "id": "eu-frankfurt",
+            "active": false,
+            "label": "Germany",
+            "location_img": "https://flagicons.lipis.dev/flags/4x3/de.svg"
+        },
+        {
+            "id": "sg-singapore",
+            "active": false,
+            "label": "Singapore",
+            "location_img": "https://flagicons.lipis.dev/flags/4x3/sg.svg"
+        }
+    ],
+
+    "renewPrice": 100.00,
+
+    "traffic": [
+
+        {
+            "id": 1,
+            "price": 50.00,
+            "traffic_mb": 5242880,
+            "label": "5 МБ"
+        },
+        {
+            "id": 2,
+            "price": 100.00,
+            "traffic_mb": 52428800,
+            "label": "50 МБ"
+        }
+
+    ]
+}
