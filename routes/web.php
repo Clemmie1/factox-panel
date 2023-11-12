@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Invoice;
 use App\Models\ObjectStorage;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,6 @@ use OutlineApiClient\OutlineApiClient;
 use OutlineApiClient\OutlineKey;
 
 Route::domain('cloud.' . env('APP_URL'))->group(function () {
-
 
     Route::get('/', function () {
         return view('Panel.home');

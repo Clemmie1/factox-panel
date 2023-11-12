@@ -23,11 +23,9 @@ class LoadInvoices extends Component
     public function render()
     {
 
-        $list = Invoice::take($this->amount)->where(['owner_id' => \Auth::id()])->get();
-        $listCount = Invoice::where(['owner_id' => \Auth::id()])->count();
+        $list = Invoice::query()->take($this->amount)->where(['owner_id' => \Auth::id()])->orderByDesc('created_at')->get();
         return view('livewire.panel.billing.load-invoices', [
-            'listInvoice' => $list,
-            'InvoiceTotal' => $listCount,
+            'listInvoice' => $list
         ]);
     }
 }

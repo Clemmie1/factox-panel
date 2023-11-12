@@ -61,7 +61,11 @@
                 <td>{{ $invoiceData->item }}</td>
                 <td>{{ $invoiceData->item_description }}</td>
                 <td>{{ $invoiceData->item_price }} ₽</td>
-                <td>{{ $invoiceData->item_id }}</td>
+                @if($invoiceData->item_id != null)
+                    <td>{{ $invoiceData->item_id }}</td>
+                @else
+                    <td>-</td>
+                @endif
                 <td>-</td>
             </tr>
             <tr>

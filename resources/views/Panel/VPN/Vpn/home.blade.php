@@ -68,9 +68,9 @@
 
 <x-livewire-alert::scripts />
 
-{{--@include('Panel.StorageObject.Bucket.Actions.changeBucketName')
-@include('Panel.StorageObject.Bucket.Actions.renewBucket')
-@include('Panel.StorageObject.Bucket.Actions.deleteBucket')--}}
+@include('Panel.VPN.Vpn.Actions.changeVpnName')
+@include('Panel.VPN.Vpn.Actions.renewVpn')
+@include('Panel.VPN.Vpn.Actions.deleteVpn')
 
 <script src="{{asset('assets/plugins/global/plugins.bundle.js')}}"></script>
 <script src="{{asset('assets/js/scripts.bundle.js')}}"></script>

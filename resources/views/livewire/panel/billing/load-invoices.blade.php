@@ -3,14 +3,9 @@
         <div class="card-title">
             <h3>Счета</h3>
         </div>
-        <div class="card-toolbar">
-            <span class="text-gray-600 fs-2">
-                {{ $InvoiceTotal }}
-            </span>
-        </div>
     </div>
     <div class="card-body p-0">
-        @if(!$listInvoice)
+        @if($listInvoice->isEmpty())
             <div class="justify-content-center text-center py-7">
                 <div class="d-flex justify-content-center">
                     <div href="#" class="">

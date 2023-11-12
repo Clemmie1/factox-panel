@@ -19,9 +19,9 @@
                                 </div>
                                 <div class="d-flex flex-column">
                                     <h2 class="mb-1">{{$data[0]['vpn_name']}}
-                                        <i class="las la-edit fs-2x" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#changeBucketName"></i>
-                                        <i class="las la-redo-alt fs-2x text-success" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#renewBucket"></i>
-                                        <i class="las la-trash-alt fs-2x text-danger" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#deleteBucket"></i>
+                                        <i class="las la-edit fs-2x" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#changeVpnName"></i>
+                                        <i class="las la-redo-alt fs-2x text-success" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#renewVpn"></i>
+                                        <i class="las la-trash-alt fs-2x text-danger" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#deleteVpn"></i>
                                     </h2>
                                     <div class="text-muted fw-bold">
                                         {{$vpnID}}
@@ -82,28 +82,21 @@
                             <div class="card-body border-top p-9">
                                 <div class="d-flex flex-column gap-5">
                                     <div class="d-flex flex-stack">
-                                        <div class="fs-6 fw-bold text-gray-600">Хранилище данных</div>
-                                        <div class="">20 ГБ</div>
+                                        <div class="fs-6 fw-bold text-gray-600">Траффик</div>
+                                        <div class="">0 МБ</div>
                                     </div>
                                     <div class="separator my-1"></div>
                                     <div class="d-flex flex-stack">
-                                        <div class="fs-6 fw-bold text-gray-600">Примерное число объектов <i class="las la-info fs-1"></i></div>
-                                        <div class="">0 объектов</div>
+                                        <div class="fs-6 fw-bold text-gray-600">Локация</div>
+                                        <div class="">{{ $data[0]['vpn_location'] }}</div>
                                     </div>
                                     <div class="separator my-1"></div>
-                                    <div class="d-flex flex-stack">
-                                        <div class="fs-6 fw-bold text-gray-600">Приблизительный размер <i class="las la-info fs-1"></i></div>
-                                        <div class="">0 байт</div>
-                                    </div>
-                                    <div class="separator my-1"></div>
-                                    <div class="d-flex flex-stack">
-                                        <div class="fs-6 fw-bold text-gray-600">Примерное число незафиксированных многокомпонентных загрузок <i class="las la-info fs-1"></i></div>
-                                        <div class="">0 загрузок</div>
-                                    </div>
-                                    <div class="separator my-1"></div>
-                                    <div class="d-flex flex-stack">
-                                        <div class="fs-6 fw-bold text-gray-600">Примерное размер незафиксированных многокомпонентных загрузок <i class="las la-info fs-1"></i></div>
-                                        <div class="">0 байт</div>
+                                    <div class="">
+                                        <div class="fs-6 fw-bold text-gray-600">
+                                            <button class="btn btn-secondary w-100 text-uppercase">
+                                                Подключение
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

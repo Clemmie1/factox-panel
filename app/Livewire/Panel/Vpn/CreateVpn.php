@@ -55,7 +55,7 @@ class CreateVpn extends Component
                 Auth::user(),
                 'VPN',
                 $genVpnId,
-                'Создание VPN ' . $this->label,
+                'Создание VPN, ' . $this->label . ', ' . $this->location,
                 $this->price
             ))
             {
