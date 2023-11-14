@@ -20,6 +20,8 @@ return new class extends Migration
             $table->boolean('blocked')->default(0)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+
+            $table->boolean('admin')->default(0)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

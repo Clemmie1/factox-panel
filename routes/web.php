@@ -1,16 +1,6 @@
 <?php
 
-use App\Models\Invoice;
-use App\Models\ObjectStorage;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
-use Hitrov\OCI\Signer;
-
-use App\Http\Controllers\OCI\AI\LanguageTranslation;
-use OutlineApiClient\OutlineApiClient;
-use OutlineApiClient\OutlineKey;
 
 Route::domain('cloud.' . env('APP_URL'))->group(function () {
 
