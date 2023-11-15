@@ -17,5 +17,4 @@ Route::domain('cloud.' . env('APP_URL'))->group(function () {
     Route::get('/web-hosting', function () {
         return view('Panel.WebHosting.home');
     })->middleware(['verified', 'auth'])->name('cloud.wh.home');
-
 });

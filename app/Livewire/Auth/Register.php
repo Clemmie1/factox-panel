@@ -12,32 +12,30 @@ use \Illuminate\Database\QueryException;
 class Register extends Component
 {
 
+    use LivewireAlert;
 
-    #[Rule([
-        'name' => 'required|max:10',
-    ],
+    #[Rule('required|max:10',
         message: [
-            'max' => 'Максимально 10 символов',
+            'name.required' => 'Введите Имя',
+            'name.max' => 'Максимально 10 символов'
         ],
         onUpdate: true
     )]
     public $name;
 
-    #[Rule([
-        'email' => 'required|email:filter',
-    ],
+    #[Rule('required|email:filter',
         message: [
-            'email' => 'Неверный формат почты',
+            'email.required' => 'Введите почту',
+            'email.email' => 'Неверный формат почты'
         ],
         onUpdate: true
     )]
     public $email;
 
-    #[Rule([
-        'password' => 'required|min:6',
-    ],
+    #[Rule('required|min:6',
         message: [
-            'min' => 'Минимальный пароль 6 символов',
+            'password.required' => 'Введите пароль',
+            'password.min' => 'Минимальный пароль 6 символов'
         ],
         onUpdate: true
     )]
@@ -45,14 +43,13 @@ class Register extends Component
 
 
     public $formRegister = true;
-    use LivewireAlert;
 
 
     public function reg()
     {
 
         $this->validate();
-        sleep(1);
+        sleep(0.5);
 
         try {
             $user = User::create([

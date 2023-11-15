@@ -12,28 +12,27 @@ class Login extends Component
 
     use LivewireAlert;
 
-    public $formLogin = true;
-    public $accountBlocked = false;
-
-    #[Rule([
-        'email' => 'required|email:filter',
-    ],
+    #[Rule('required|email:filter',
         message: [
-            'email' => 'Неверный формат почты',
+            'email.required' => 'Введите почту',
+            'email.email' => 'Неверный формат почты'
         ],
         onUpdate: true
     )]
     public $email;
 
-    #[Rule([
-        'password' => 'required|min:6',
-    ],
+    #[Rule('required|min:6',
         message: [
-            'min' => 'Минимальный пароль 6 символов',
+            'password.required' => 'Введите пароль',
+            'password.min' => 'Минимальный пароль 6 символов'
         ],
         onUpdate: true
     )]
-    public $password;
+    public $password = null;
+
+    public $formLogin = true;
+    public $accountBlocked = false;
+
     public $code;
 
 

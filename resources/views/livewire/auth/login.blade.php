@@ -2,6 +2,7 @@
     @if($formLogin)
         <div>
             <form class="form w-100" wire:submit="login">
+                @csrf
                 <div class="text-center mb-11">
                     <h1 class="text-dark fw-bolder mb-5">
 
@@ -16,13 +17,19 @@
                     </div>
                 </div>
                 <div class="fv-row mb-8 fv-plugins-icon-container">
-                    <input type="email" wire:model.live="email" placeholder="Почта" name="email" autocomplete="on" class="form-control form-control-solid @error('email') is-invalid @enderror">
-                    @error('email') <div class="text-danger mt-1">{{ $message }}</div> @enderror
+                    <div>
+                        <input type="email" wire:model.live="email" placeholder="Почта" name="email" autocomplete="on" class="form-control form-control-solid @error('email') is-invalid @enderror">
+                        @error('email') <div class="text-danger mt-1">{{ $message }}</div> @enderror
+                    </div>
+
                 </div>
 
                 <div class="fv-row mb-3 fv-plugins-icon-container">
-                    <input type="password" wire:model.live="password" placeholder="Пароль" name="password" autocomplete="off" class="form-control form-control-solid @error('password') is-invalid @enderror">
-                    @error('password') <div class="text-danger mt-1">{{ $message }}</div> @enderror
+                    <div>
+                        <input type="password" wire:model.live="password" placeholder="Пароль" name="password" autocomplete="off" class="form-control form-control-solid @error('password') is-invalid @enderror">
+                        @error('password') <div class="text-danger mt-1">{{ $message }}</div> @enderror
+                    </div>
+
                 </div>
 
                 <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
