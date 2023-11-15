@@ -35,8 +35,6 @@ class Login extends Component
 
     public $code;
 
-
-
     public function login()
     {
         $this->validate();

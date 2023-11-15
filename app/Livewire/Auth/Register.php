@@ -41,9 +41,7 @@ class Register extends Component
     )]
     public $password;
 
-
     public $formRegister = true;
-
 
     public function reg()
     {
