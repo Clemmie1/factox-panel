@@ -14,6 +14,7 @@ class Register extends Component
 
     use LivewireAlert;
 
+
     #[Rule('required|max:10',
         message: [
             'name.required' => 'Введите Имя',

@@ -12,6 +12,7 @@ class Login extends Component
 
     use LivewireAlert;
 
+
     #[Rule('required|email:filter',
         message: [
             'email.required' => 'Введите почту',
