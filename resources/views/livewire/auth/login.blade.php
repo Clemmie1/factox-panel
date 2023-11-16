@@ -93,9 +93,11 @@
                         </div>
                     </div>
 
-                    <div class="fv-row mb-10">
-                        <input type="password" wire:model.live.blur="code"  placeholder="код" name="password" autocomplete="off" class="form-control form-control-solid text-center mb-2 text-uppercase @error('code') border-danger @enderror">
-                        <span class="text-gray-500 fw-semibold fs-6">Мы отправили код подтверждения на вашу почту. Введите код в поле ниже.</span>
+                    <div>
+                        <div class="fv-row mb-10">
+                            <input type="text" wire:model="code"  placeholder="код" value="1" autocomplete="off" class="form-control form-control-solid text-center mb-2 text-uppercase @error('code') required border-danger @enderror">
+                            <span class="text-gray-500 fw-semibold fs-6">Мы отправили код подтверждения на вашу почту. Введите код в поле ниже.</span>
+                        </div>
                     </div>
 
                     <div class="d-grid">

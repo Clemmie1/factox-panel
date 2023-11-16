@@ -28,6 +28,10 @@ Route::domain('cloud.' . env('APP_URL'))->group(function () {
 
         return redirect('/');
     })->middleware(['auth', 'signed'])->name('verification.verify');
+
+    Route::get('/auth/verify', function () {
+        return view('Auth.SendVerifyCode');
+    })->name('auth.verify');
 });
 
 

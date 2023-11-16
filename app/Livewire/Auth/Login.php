@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Auth;
 
+use App\Models\User;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -29,12 +31,11 @@ class Login extends Component
         ],
         onUpdate: true
     )]
-    public $password = null;
+    public $password;
 
     public $formLogin = true;
     public $accountBlocked = false;
 
-    public $code;
 
     public function login()
     {
@@ -47,7 +48,7 @@ class Login extends Component
             'password' => $this->password,
         ];
 
-        if (!Auth::attempt($arr)){
+        if (!Auth::validate($arr)){
             $this->alert('error', "<a class='text-muted' style='font-weight: bold;'>Неправильные учетные данные</a>", [
                 'position' => 'bottom-end',
                 'timer' => 3000,
@@ -57,40 +58,22 @@ class Login extends Component
             return;
         }
 
-        $user = Auth::user();
+        $user = User::where('email', $this->email)->first();
         if ($user->blocked){
             $this->formLogin = false;
             $this->accountBlocked = true;
             return;
         }
-
-        Auth::login($user);
-        return $this->redirect(route('cloud.home'));
-
-        /*$this->alert('success', "<a class='text-muted' style='font-weight: bold;'>Проверочный код отправлен</a>", [
-            'position' => 'bottom-end',
-            'timer' => 3000,
-            'width' => '300',
-            'toast' => true,
-        ]);
-        $this->formLogin = false;*/
+        Auth::attempt($arr);
+        $this->redirect(route('cloud.home'));
+        /*if ($user['2fa']){
+            $this->redirect(route('auth.verify', [session()->get('token_code')]), true);
+        } else {
+            Auth::attempt($arr);
+            $this->redirect(route('cloud.home'));
+        }*/
     }
 
-    public function loginSec()
-    {
-        $this->validate(
-            [
-                'code' => ['required'],
-            ],
-        );
-        sleep(2);
-        $this->alert('error', "<a class='text-muted' style='font-weight: bold;'>Неверный проверочный код</a>", [
-            'position' => 'bottom-end',
-            'timer' => 3000,
-            'width' => '300',
-            'toast' => true,
-        ]);
-    }
 
     public function back()
     {
