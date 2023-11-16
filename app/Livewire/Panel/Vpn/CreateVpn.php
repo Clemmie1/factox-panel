@@ -45,7 +45,7 @@ class CreateVpn extends Component
     {
         $this->validate();
 
-        if ($this->location == 'ca-toronto' or $this->location == 'de'){
+        if ($this->location == 'us-phoenix' or $this->location == 'ca-toronto' or $this->location == 'eu-marseille' or $this->location == 'ap-tokyo'){
 
             sleep(1);
 

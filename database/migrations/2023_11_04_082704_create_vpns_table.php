@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('owner_id')->references('id')->on('users');
 
-            // 0 - Ожидание -> 1 - создание -> 2 - активный -> 3 - приостановлен -> 4 - удален
+            // 0 - Ожидание -> 1 - создание -> 2 - активный -> 3 - приостановлен -> 4 - удален -> 5 - Ошибка
             $table->integer('status')->default('1')->nullable();
             $table->string('vpn_location');
             $table->string('vpn_name');

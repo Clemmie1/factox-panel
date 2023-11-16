@@ -3,22 +3,32 @@
 
     "location": [
         {
+            "id": "us-phoenix",
+            "active": true,
+            "hostUrl": "vpn.us-phoenix.factox.cloud",
+            "label": "US West",
+            "location_img": "https://flagicons.lipis.dev/flags/4x3/us.svg"
+        },
+        {
             "id": "ca-toronto",
             "active": true,
+            "hostUrl": "vpn.ca-toronto.factox.cloud",
             "label": "Canada",
             "location_img": "https://flagicons.lipis.dev/flags/4x3/ca.svg"
         },
         {
-            "id": "eu-frankfurt",
-            "active": false,
-            "label": "Germany",
-            "location_img": "https://flagicons.lipis.dev/flags/4x3/de.svg"
+            "id": "eu-marseille",
+            "active": true,
+            "hostUrl": "vpn.eu-marseille.factox.cloud",
+            "label": "France",
+            "location_img": "https://flagicons.lipis.dev/flags/4x3/fr.svg"
         },
         {
-            "id": "sg-singapore",
-            "active": false,
-            "label": "Singapore",
-            "location_img": "https://flagicons.lipis.dev/flags/4x3/sg.svg"
+            "id": "ap-tokyo",
+            "active": true,
+            "hostUrl": "vpn.ap-tokyo.factox.cloud",
+            "label": "Japan",
+            "location_img": "https://flagicons.lipis.dev/flags/4x3/jp.svg"
         }
     ],
 
