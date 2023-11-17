@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\Attributes\Rule;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 class Login extends Component
 {
@@ -37,6 +39,10 @@ class Login extends Component
     public $accountBlocked = false;
 
 
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
     public function login()
     {
         $this->validate();
@@ -65,7 +71,10 @@ class Login extends Component
             return;
         }
         Auth::attempt($arr);
-        $this->redirect(route('cloud.home'));
+        $this->redirect(route('cloud.home', [
+            't' => "".session()->get('token_code')."",
+            'p'=>"ui",
+        ]));
         /*if ($user['2fa']){
             $this->redirect(route('auth.verify', [session()->get('token_code')]), true);
         } else {

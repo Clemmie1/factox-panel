@@ -132,7 +132,9 @@
                         </div>--}}
                     </div>
                     <div class="card mb-5 mb-xl-10 mt-5">
-                        @livewire('panel.billing.load-invoices')
+                        @livewire('panel.billing.load-invoices', [
+                            'lazy' => true
+                        ])
                         {{--<div class="card-body p-0">
                             <div class="table-responsive">
                                 <table class="table align-middle table-row-bordered table-row-solid gy-4 gs-9">
