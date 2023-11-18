@@ -1,8 +1,19 @@
 <?php
 
+use App\Http\Controllers\OCI\Email\MessagingEmailController;
+use Hitrov\OCI\Signer;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
+use Nette\Utils\Random;
 
 Route::domain('cloud.' . env('APP_URL'))->group(function () {
+
+    Route::get('/test', function () {
+
+        $s = MessagingEmailController::CreateSmtpUser(\Auth::user()->oci_user_id);
+
+        return $s['status'];
+    });
 
     Route::get('/', function () {
         return view('Panel.home');

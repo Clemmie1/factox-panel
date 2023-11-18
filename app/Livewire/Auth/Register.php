@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Auth;
 
+use App\Jobs\OCI\CreateUser;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -66,6 +67,9 @@ class Register extends Component
 
             \Auth::login($user);
             event(new Registered($user));
+
+            dispatch(new CreateUser($this->email));
+
             $this->formRegister = false;
         } catch (QueryException $e) {
             $this->alert('error', "<a class='text-muted' style='font-weight: bold;'>Почта занята</a>", [

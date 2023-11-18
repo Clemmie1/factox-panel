@@ -4,7 +4,7 @@
             <h3 class="fw-bold m-0">Учетные данные SMTP</h3>
         </div>
         <div class="card-toolbar">
-            <button class="btn btn-secondary btn-sm">
+            <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#generateSmtpName">
                 Создать
             </button>
         </div>
@@ -39,8 +39,8 @@
                             <tr>
                                 <th>{{ $list->smtp_name }}</th>
                                 <th>
-                                    <div class="col-3 text-truncate"><span class="smtpUserName">{{ $list->smtp_user_name }}</span></div>
-                                    <a onclick="copyText(this)" wire:click="copyText()" class="text-primary" style="cursor: pointer">
+                                    <div class="smtpUserName" id="smtpUserName">{{ $list->smtp_user_name }}</div>
+                                    <a onclick="copyText(this)" class="text-primary" style="cursor: pointer">
                                         Копировать
                                     </a>
                                 </th>

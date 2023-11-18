@@ -186,24 +186,33 @@
     </div>
 </div>
 
+
+<div class="modal fade" tabindex="-1" id="generateSmtpName">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            @livewire('panel.account.create-user-smtp')
+        </div>
+    </div>
+</div>
+
 <script src="{{asset('assets/plugins/global/plugins.bundle.js')}}"></script>
 <script src="{{asset('assets/js/scripts.bundle.js')}}"></script>
 <script src="{{asset('assets/js/custom/account/settings/signin-methods.js')}}"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script src=" https://cdn.jsdelivr.net/npm/@flasher/flasher-notyf@1.3.1/dist/flasher-notyf.min.js "></script>
+<link href=" https://cdn.jsdelivr.net/npm/@flasher/flasher-notyf@1.3.1/dist/flasher-notyf.min.css " rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
 <x-livewire-alert::scripts />
-<script>
 
-    document.addEventListener('livewire:navigated', () => {
-        KTComponents.init();
-    })
-
-</script>
 
 <script>
+
     function copyText(element) {
+
+        const factory = flasher.create('notyf');
+
         var textToCopy = element.closest('tr').querySelector('.smtpUserName').innerText;
         var textarea = document.createElement('textarea');
         textarea.value = textToCopy;
@@ -211,7 +220,32 @@
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
+
+
+        factory.success({
+            message: 'Скопировано',
+            positions: 'top',
+            ripple: true,
+            duration: 1300,
+        });
+    }
+
+    function CopySmtpUser(inputId) {
+        const inputElement = document.getElementById(inputId);
+
+        inputElement.select();
+
+        document.execCommand('copy');
+
+        const factory = flasher.create('notyf');
+        factory.success({
+            message: 'Скопировано',
+            positions: 'top',
+            ripple: true,
+            duration: 1300,
+        });
     }
 </script>
+
 </body>
 </html>
