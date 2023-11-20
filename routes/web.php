@@ -10,9 +10,9 @@ Route::domain('cloud.' . env('APP_URL'))->group(function () {
 
     Route::get('/test', function () {
 
-        $s = MessagingEmailController::CreateSmtpUser(\Auth::user()->oci_user_id);
+        $s = MessagingEmailController::CreateEmailDomain();
 
-        return $s['status'];
+        return $s;
     });
 
     Route::get('/', function () {

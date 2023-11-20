@@ -34,14 +34,21 @@ class MessagingEmailController extends Controller
         $body = '';
 
         $instance = new MessagingEmailController();
-        $send = $instance->sendRequest($url, $method, $body);
+        return $instance->sendRequest($url, $method, $body);
 
-        if ($send['code'] == "NotAuthorizedOrNotFound"){
-            return false;
-        } else {
-            SmtpUser::query()->where(['smtp_user_id'=>$smtpCredentialId])->delete();
-            return true;
-        }
+    }
+
+    public static function CreateEmailDomain()
+    {
+        $url = 'https://ctrl.email.us-phoenix-1.oci.oraclecloud.com/20170907/emailDomains';
+        $method = 'POST';
+        $body = '{
+            "compartmentId": "ocid1.tenancy.oc1..aaaaaaaaglb5ldpcfzhab2hpacw5ofmqsyh6ooezrkx5kqmdba5ru7xkgdpa",
+            "name": "dsadsadfsdsadas.com"
+        }';
+
+        $instance = new MessagingEmailController();
+        return $instance->sendRequest($url, $method, $body);
     }
 
     public function sendRequest(string $url, string $method, string $body)
@@ -76,7 +83,6 @@ class MessagingEmailController extends Controller
         curl_setopt_array($curl, $curlOptions);
         $response = curl_exec($curl);
 
-        // Получение статуса ответа
         $httpStatus = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
         curl_close($curl);

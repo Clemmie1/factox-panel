@@ -44,6 +44,7 @@ class CreateUserSmtp extends Component
             return;
         }
 
+
         $this->dispatch('update-smtp-user');
         $this->dataSmtp = [
             'smtp_user' => $send['body']['username'],

@@ -11,6 +11,7 @@ class SmtpUser extends Model
 
     protected $fillable = [
         'owner_id',
+        'smtp_user_id',
         'smtp_name',
         'smtp_user_name',
         'smtp_user_password',

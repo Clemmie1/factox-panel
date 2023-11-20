@@ -46,7 +46,16 @@
                                 </th>
                                 <th>{{ $list->created_at }}</th>
                                 <th class="text-end">
-                                    <a class="btn btn-sm btn-icon btn-danger"><i class="las la-trash fs-1"></i></a>
+                                    <div>
+                                        <button wire:loading.remove wire:target="deleteSmtpUserName" wire:click="deleteSmtpUserName('{{ $list->smtp_user_id }}')" class="btn btn-sm btn-icon btn-danger"><i class="las la-trash fs-1"></i></button>
+                                    </div>
+                                    <div wire:loading wire:target="deleteSmtpUserName">
+                                        <button class="btn btn-sm btn-icon btn-danger" disabled>
+                                            <div class="spinner-border spinner-border-sm text-white" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </button>
+                                    </div>
                                 </th>
                             </tr>
                         @endforeach

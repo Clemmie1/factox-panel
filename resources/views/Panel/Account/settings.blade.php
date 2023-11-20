@@ -160,23 +160,6 @@
 
                     </div>
 
-                    <div class="card border-danger">
-
-                        <div class="card-header border-1 border-danger cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_deactivate" aria-expanded="true" aria-controls="kt_account_deactivate">
-                            <div class="card-title m-0">
-                                <h3 class="fw-bold m-0 text-danger">Деактивировать аккаунт</h3>
-                            </div>
-                        </div>
-
-                        <div class="collapse show">
-
-                            <div class="form fv-plugins-bootstrap5 fv-plugins-framework">
-
-                                @livewire('panel.account.close-account')
-                            </div>
-                        </div>
-                        <!--end::Content-->
-                    </div>
 
                 </div>
             </div>

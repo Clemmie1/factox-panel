@@ -37,10 +37,6 @@
                 </div>
 
                 <div class="menu-item">
-                    <a class="menu-link"><span class="menu-icon"><i class="fa-duotone fa-mailbox fs-2"></i></span><span class="menu-title">Доставка почты</span></a>
-                </div>
-
-                <div class="menu-item">
                     @if(Route::is('cloud.vpn.home'))
                         <a style="cursor: not-allowed" class="menu-link disabled"><span class="menu-icon"><i class="fa-duotone fa-network-wired fs-2"></i></span><span class="menu-title">VPN</span></a>
                     @else
@@ -48,6 +44,28 @@
                     @endif
                 </div>
 
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                        <span class="menu-link">
+                            <span class="menu-icon"><i class="fa-duotone fa-mailbox fs-2"></i></span><span class="menu-title">Доставка почты</span><span class="menu-arrow"></span>
+                        </span>
+                    <div class="menu-sub menu-sub-accordion" style="display: none; overflow: hidden;" kt-hidden-height="230">
+                        <div class="menu-item">
+                            <a onclick="location.href='{{route('cloud.messaging.email.home')}}'" class="menu-link" ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Инфопанель доставляемости</span></a><!--end:Menu link-->
+                        </div>
+                        <div class="menu-item">
+                            <a onclick="location.href='{{route('cloud.messaging.email.configuration')}}'" class="menu-link" ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Конфигурация</span></a><!--end:Menu link-->
+                        </div>
+                        <div class="menu-item">
+                            <a onclick="location.href='{{route('cloud.messaging.email.email-domains')}}'" class="menu-link" ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Домены электронной почты</span></a><!--end:Menu link-->
+                        </div>
+                        <div class="menu-item">
+                            <a onclick="location.href='{{route('cloud.messaging.email.senders')}}'" class="menu-link" ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Утвержденные отправители</span></a><!--end:Menu link-->
+                        </div>
+                        <div class="menu-item">
+                            <a onclick="location.href='{{route('cloud.messaging.email.suppressions')}}'" class="menu-link" ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Список запретов</span></a><!--end:Menu link-->
+                        </div>
+                    </div>
+                </div>
 
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                         <span class="menu-link">
