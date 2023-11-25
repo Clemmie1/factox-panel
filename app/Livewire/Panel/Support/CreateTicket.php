@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Panel\Support;
 
+use App\Jobs\SendOpenTicketSupportJob;
 use App\Mail\Support\CreateNewTicket;
 use App\Models\SupportTicket;
 use App\Models\SupportTicketComment;
@@ -37,7 +38,7 @@ class CreateTicket extends Component
             $this->ticketCategory = 'Отдел продаж';
         }
 
-        sleep(1.5);
+        sleep(0.5);
         $ticket_id = Random::generateInt(10);
 
         SupportTicket::create([
@@ -56,7 +57,8 @@ class CreateTicket extends Component
 
         $url = route('support.tickets.viewticket', $ticket_id);
 
-        Mail::mailer('support_smtp')->to(\Auth::user()->email)->send(new CreateNewTicket($ticket_id, $this->ticketTheme, $this->ticketCategory, $url));
+//        Mail::mailer('support_smtp')->to(\Auth::user()->email)->send(new CreateNewTicket($ticket_id, $this->ticketTheme, $this->ticketCategory, $url));
+        dispatch(new SendOpenTicketSupportJob(auth()->user()->email, $ticket_id, $this->ticketTheme, $this->ticketCategory, $url));
 
         return $this->redirect($url);
     }

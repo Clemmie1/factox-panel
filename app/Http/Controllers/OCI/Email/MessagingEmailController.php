@@ -56,7 +56,7 @@ class MessagingEmailController extends Controller
         $signer = new Signer(
             'ocid1.tenancy.oc1..aaaaaaaaglb5ldpcfzhab2hpacw5ofmqsyh6ooezrkx5kqmdba5ru7xkgdpa',
             'ocid1.user.oc1..aaaaaaaavi7yq46yc5bjdblb7zeuve7cuyq5dp4frnqfpwld6mhvoptglvta',
-            'd1:b6:0d:b8:6c:f6:e0:e2:6a:01:63:28:d4:ba:b6:d7',
+            'c9:9c:c9:7c:92:3b:0e:df:ce:d5:b0:a6:a2:d0:c9:05',
             Storage::path('oci_email.pem')
         );
         $curl = curl_init();

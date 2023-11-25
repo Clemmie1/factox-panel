@@ -13,6 +13,7 @@
     <link href="{{asset('assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{asset('assets/css/spinkit.css')}}" type="text/css"/>
+    @livewireStyles
 </head>
 <body class="auth-bg">
 <script>
@@ -57,6 +58,7 @@
     </div>
 </div>
 </body>
+@livewireScripts
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <x-livewire-alert::scripts />

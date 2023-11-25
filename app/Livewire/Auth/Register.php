@@ -3,6 +3,7 @@
 namespace App\Livewire\Auth;
 
 use App\Jobs\OCI\CreateUser;
+use App\Jobs\OCI\CreateUserJob;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -68,7 +69,7 @@ class Register extends Component
             \Auth::login($user);
             event(new Registered($user));
 
-            dispatch(new CreateUser($this->email));
+            dispatch(new CreateUserJob($this->email))->onQueue('create_oci_user');
 
             $this->formRegister = false;
         } catch (QueryException $e) {

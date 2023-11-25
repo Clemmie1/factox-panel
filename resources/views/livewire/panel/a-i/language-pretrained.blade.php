@@ -69,12 +69,34 @@
                         <h3 class="mb-2">Распознавание языка</h3>
                         <div class="mt-3">
                             {{--                            @dd($BatchDetectLanguageKeyPhrasesResult['documents']['0']['keyPhrases'])--}}
-                            @if(!$BatchDetectDominantLanguageResult['errors'])
-                                @foreach($BatchDetectDominantLanguageResult['documents']['0']['languages'] as $list)
-                                    <span class="badge badge-light m-1 fs-6">{{$list['name']}}</span>
-                                @endforeach
+                            @if($BatchDetectDominantLanguageResult)
+
+                                @if(!$BatchDetectDominantLanguageResult->errors)
+
+                                    @if($BatchDetectDominantLanguageResult->documents[0]->languages)
+
+                                        @foreach($BatchDetectDominantLanguageResult->documents[0]->languages as $list)
+
+                                            <span class="badge badge-light m-1 fs-6">{{$list->name}} <span class="badge badge-light-primary ms-2" title="score">{{ number_format($list->score, 3) }}</span></span>
+
+                                        @endforeach
+
+                                    @else
+
+                                        <span class="badge badge-danger m-1 fs-6">Результат не найден</span>
+
+                                    @endif
+
+                                @else
+
+                                    <span class="badge badge-danger m-1 fs-6">Язык не поддерживается</span>
+5
+                                @endif
+
                             @else
-                                <span class="badge badge-danger m-1 fs-6">Язык не поддерживается</span>
+
+                                <span class="badge badge-danger m-1 fs-6">Результат не найден</span>
+
                             @endif
                         </div>
                     </div>
@@ -83,17 +105,36 @@
                         <h3 class="mb-2">Классификация текста</h3>
                         <div class="mt-3">
                             {{--                            @dd($BatchDetectLanguageKeyPhrasesResult['documents']['0']['keyPhrases'])--}}
-                            @if(!$BatchDetectLanguageTextClassificationResult['errors'])
-                                @if($BatchDetectLanguageTextClassificationResult['documents']['0']['textClassification'])
-                                    @foreach($BatchDetectLanguageTextClassificationResult['documents']['0']['textClassification'] as $list)
-                                        <span class="badge badge-light m-1 fs-6">{{$list['label']}}</span>
-                                    @endforeach
+                            @if($BatchDetectLanguageTextClassificationResult)
+
+                                @if(!$BatchDetectLanguageTextClassificationResult->errors)
+
+                                    @if($BatchDetectLanguageTextClassificationResult->documents[0]->textClassification)
+
+                                        @foreach($BatchDetectLanguageTextClassificationResult->documents[0]->textClassification as $list)
+
+                                            <span class="badge badge-light m-1 fs-6">{{$list->label}} <span class="badge badge-light-primary ms-2" title="score">{{ number_format($list->score, 3) }}</span></span>
+
+                                        @endforeach
+
+                                    @else
+
+                                        <span class="badge badge-danger m-1 fs-6">Результат не найден</span>
+
+                                    @endif
+
                                 @else
-                                    <span class="badge badge-warning m-1 fs-6">Не найдено</span>
+
+                                    <span class="badge badge-danger m-1 fs-6">Язык не поддерживается</span>
+
                                 @endif
+
                             @else
-                                <span class="badge badge-danger m-1 fs-6">Язык не поддерживается</span>
+
+                                <span class="badge badge-danger m-1 fs-6">Результат не найден</span>
+
                             @endif
+
                         </div>
                     </div>
 
@@ -101,64 +142,103 @@
                         <h3 class="mb-2">Распознавание названного объекта</h3>
                         <div class="mt-3">
                             {{--                            @dd($BatchDetectLanguageKeyPhrasesResult['documents']['0']['keyPhrases'])--}}
-                            @if(!$BatchDetectLanguageEntitiesResult['errors'])
-                                @if($BatchDetectLanguageEntitiesResult['documents']['0']['entities'])
-                                    @foreach($BatchDetectLanguageEntitiesResult['documents']['0']['entities'] as $list)
-                                        <span class="badge badge-light m-1 fs-6">{{$list['text']}}
-                                            <span class="badge badge-white ms-2">
-                                                @if($list['type'] == 'PRODUCT')
-                                                    ПРОДУКТ
-                                                @elseif($list['type'] == 'ORGANIZATION')
-                                                    ОРГАНИЗАЦИЯ
-                                                @elseif($list['type'] == 'DATETIME')
-                                                    ВРЕМЯ
-                                                @elseif($list['type'] == 'LOCATION')
-                                                    РАСПОЛОЖЕНИЕ
-                                                @elseif($list['type'] == 'CITY')
-                                                    ГОРОД
-                                                @elseif($list['type'] == 'EVENT')
-                                                    СОБЫТИЕ
-                                                @elseif($list['type'] == 'QUANTITY')
-                                                    КОЛИЧЕСТВО
-                                                @endif
+                            @if($BatchDetectLanguageEntitiesResult)
+
+                                @if(!$BatchDetectLanguageEntitiesResult->errors)
+
+                                    @if($BatchDetectLanguageEntitiesResult->documents[0]->entities)
+
+                                        @foreach($BatchDetectLanguageEntitiesResult->documents[0]->entities as $list)
+
+                                            <span class="badge badge-light m-1 fs-6">{{$list->text}}
+                                                <span class="badge badge-white ms-2">
+                                                    @if($list->type == 'PRODUCT')
+                                                        ПРОДУКТ
+                                                    @elseif($list->type == 'ORGANIZATION')
+                                                        ОРГАНИЗАЦИЯ
+                                                    @elseif($list->type == 'DATETIME')
+                                                        ВРЕМЯ
+                                                    @elseif($list->type == 'LOCATION')
+                                                        РАСПОЛОЖЕНИЕ
+                                                    @elseif($list->type == 'CITY')
+                                                        ГОРОД
+                                                    @elseif($list->type == 'EVENT')
+                                                        СОБЫТИЕ
+                                                    @elseif($list->type == 'QUANTITY')
+                                                        КОЛИЧЕСТВО
+                                                    @endif
+                                                </span>
+                                                <span class="badge badge-light-primary ms-2" title="score">{{ number_format($list->score, 3) }}</span>
                                             </span>
-                                        </span>
-                                    @endforeach
+
+                                        @endforeach
+
+                                    @else
+
+                                        <span class="badge badge-danger m-1 fs-6">Результат не найден</span>
+
+                                    @endif
+
                                 @else
-                                    <span class="badge badge-warning m-1 fs-6">Не найдено</span>
+
+                                    <span class="badge badge-danger m-1 fs-6">Язык не поддерживается</span>
+
                                 @endif
+
                             @else
-                                <span class="badge badge-danger m-1 fs-6">Язык не поддерживается</span>
+
+                                <span class="badge badge-danger m-1 fs-6">Результат не найден</span>
+
                             @endif
+
                         </div>
                     </div>
 
                     <div class="py-3 mt-6">
                         <h3 class="mb-2">Извлечение ключевой фразы</h3>
                         <div class="mt-3">
-{{--                            @dd($BatchDetectLanguageKeyPhrasesResult['documents']['0']['keyPhrases'])--}}
-                            @if(!$BatchDetectLanguageKeyPhrasesResult['errors'])
-                                @if($BatchDetectLanguageKeyPhrasesResult['documents']['0']['keyPhrases'])
-                                    @foreach($BatchDetectLanguageKeyPhrasesResult['documents']['0']['keyPhrases'] as $list)
-                                        <span class="badge badge-light m-1 fs-6">{{$list['text']}}</span>
-                                    @endforeach
+                            {{--                            @dd($BatchDetectLanguageKeyPhrasesResult['documents']['0']['keyPhrases'])--}}
+                            @if($BatchDetectLanguageKeyPhrasesResult)
+
+                                @if(!$BatchDetectLanguageKeyPhrasesResult->errors)
+
+                                    @if($BatchDetectLanguageKeyPhrasesResult->documents[0]->keyPhrases)
+
+                                        @foreach($BatchDetectLanguageKeyPhrasesResult->documents[0]->keyPhrases as $list)
+
+                                            <span class="badge badge-light m-1 fs-6">{{$list->text}} <span class="badge badge-light-primary ms-2" title="score">{{ number_format($list->score, 3) }}</span></span>
+
+                                        @endforeach
+
+                                    @else
+
+                                        <span class="badge badge-danger m-1 fs-6">Результат не найден</span>
+
+                                    @endif
+
                                 @else
-                                    <span class="badge badge-warning m-1 fs-6">Не найдено</span>
+
+                                    <span class="badge badge-danger m-1 fs-6">Язык не поддерживается</span>
+
                                 @endif
+
                             @else
-                                <span class="badge badge-danger m-1 fs-6">Язык не поддерживается</span>
+
+                                <span class="badge badge-danger m-1 fs-6">Результат не найден</span>
+
                             @endif
+
                         </div>
                     </div>
 
                     <div class="py-3 mt-6">
                         <h3 class="mb-2">Настроение</h3>
-                        <span class="badge badge-warning m-1 fs-6">Не найдено</span>
+                        <span class="badge badge-danger m-1 fs-6">Результат не найден</span>
                     </div>
 
                     <div class="py-3 mt-6">
                         <h3 class="mb-2">Личная информация</h3>
-                        <span class="badge badge-warning m-1 fs-6">Не найдено</span>
+                        <span class="badge badge-danger m-1 fs-6">Результат не найден</span>
                     </div>
 
                 </div>

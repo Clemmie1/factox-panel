@@ -14,7 +14,7 @@ class DeleteBucket extends Controller
         $signer = new Signer(
             'ocid1.tenancy.oc1..aaaaaaaas3pyu6kxrchyx2tbljml3fzsltiig7e3hpujk5hvqjl4x46qzata',
             'ocid1.user.oc1..aaaaaaaapurduq4fvmy576w6euo5vc5d6pcxcbciq7jgfg7seqdf23zv7h3a',
-            'd1:1a:1b:32:e5:71:1b:18:f2:a4:75:c4:e8:b8:39:cf',
+            '8d:a9:cb:d8:22:45:51:9d:ab:7c:7c:92:8d:a7:e3:94',
             Storage::path('oci_key.pem')
         );
         $curl = curl_init();

@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Panel\Support;
 
+use App\Jobs\SendCloseTicketSupportJob;
+use App\Jobs\SendOpenTicketSupportJob;
 use App\Mail\Support\ClosedTicket;
 use App\Models\SupportTicket;
 use App\Models\SupportTicketComment;
@@ -46,7 +48,7 @@ class LoadTicketComments extends Component
         ]);
         $url = route('support.tickets.viewticket', $this->ticketID);
         $this->mount();
-        Mail::mailer('support_smtp')->to(\Auth::user()->email)->send(new ClosedTicket($this->ticketID, $url));
+        dispatch(new SendCloseTicketSupportJob(auth()->user()->email, $this->ticketID, $url));
     }
 
     public function render()
