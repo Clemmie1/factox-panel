@@ -47,35 +47,13 @@
 
             @include('Components.Panel.header')
 
-                        <div class="toolbar d-flex flex-stack py-3 py-lg-5" id="kt_toolbar">
-                            <div id="kt_toolbar_container" class=" container-xxl  d-flex flex-stack flex-wrap">
-
-
-                                <div class="page-title d-flex flex-column me-3">
-                                    <h1 class="d-flex text-dark fw-bold my-1 fs-3">
-                                        Текущий платежный баланс
-                                    </h1>
-                                    <div class="text-gray-600 fs-4">
-                                        Баланс {{ Auth::user()->balance }} руб.
-                                        <br>
-                                        @php(
-                                            $totalAmount = App\Models\Invoice::query()->where(DB::raw('DATE_FORMAT(created_at, "%Y-%m")'), date('Y-m'))
-                                            ->sum('item_price')
-                                        )
-                                        Списано за месяц {{ $totalAmount == 0 ? '0.00' : $totalAmount }} руб.
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center py-2">
-                                    <a href="#" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app" id="kt_toolbar_primary_button">
-                                        Пополнить баланс
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+            @livewire('panel.billing.load-balance', [
+                'lazy' => true,
+            ])
 
             <div class="d-flex flex-column-fluid align-items-start  container-xxl ">
                 <div class="content flex-row-fluid " >
-                    <div class="card mb-5 mb-xl-10 mt-5">
+                    <div class="card mb-5 mb-xl-10">
                         <div class="card-header">
                             <div class="card-title">
                                 <h3>История пополнений</h3>
@@ -93,86 +71,15 @@
                                 </div>
                             </div>
                         </div>
-                        {{--<div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table align-middle table-row-bordered table-row-solid gy-4 gs-9">
-                                    <thead class="border-gray-200 fs-5 fw-semibold bg-lighten">
-                                        <tr>
-                                            <th class="min-w-150px">#</th>
-                                            <th class="min-w-150px">Услуга</th>
-                                            <th class="min-w-150px">Описание</th>
-                                            <th class="min-w-150px">Сумма</th>
-                                            <th class="text-end">Статус</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody class="fw-6 fw-semibold text-gray-600">
-
-                                        <tr>
-                                            <th><a href="">32321123</a></th>
-                                            <th>2</th>
-                                            <th>3</th>
-                                            <th>4</th>
-                                            <th class="text-end">5</th>
-                                        </tr>
-
-
-                                    </tbody>
-
-
-
-                                </table>
-
-                                <div class="text-center mb-3 text-muted" style="cursor: pointer">
-                                    <i class="las la-angle-double-down"></i>
-                                    <span>Загрузить еще</span>
-                                </div>
-
-                            </div>
-                        </div>--}}
                     </div>
                     <div class="card mb-5 mb-xl-10 mt-5">
                         @livewire('panel.billing.load-invoices', [
                             'lazy' => true
                         ])
-                        {{--<div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table align-middle table-row-bordered table-row-solid gy-4 gs-9">
-                                    <thead class="border-gray-200 fs-5 fw-semibold bg-lighten">
-                                        <tr>
-                                            <th class="min-w-150px">#</th>
-                                            <th class="min-w-150px">Услуга</th>
-                                            <th class="min-w-150px">Описание</th>
-                                            <th class="min-w-150px">Сумма</th>
-                                            <th class="text-end">Статус</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody class="fw-6 fw-semibold text-gray-600">
-
-                                        <tr>
-                                            <th><a href="">32321123</a></th>
-                                            <th>2</th>
-                                            <th>3</th>
-                                            <th>4</th>
-                                            <th class="text-end">5</th>
-                                        </tr>
-
-
-                                    </tbody>
-
-
-
-                                </table>
-
-                                <div class="text-center mb-3 text-muted" style="cursor: pointer">
-                                    <i class="las la-angle-double-down"></i>
-                                    <span>Загрузить еще</span>
-                                </div>
-
-                            </div>
-                        </div>--}}
                     </div>
+
+                    @livewire('panel.billing.load-chart')
+
                 </div>
             </div>
 
@@ -182,22 +89,16 @@
     </div>
 </div>
 
-<script src="{{asset('assets/plugins/global/plugins.bundle.js')}}"></script>
-<script src="{{asset('assets/js/scripts.bundle.js')}}"></script>
-<script src="{{asset('assets/js/custom/account/settings/signin-methods.js')}}"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <x-livewire-alert::scripts />
-<script>
+<script src="{{asset('assets/plugins/global/plugins.bundle.js')}}"></script>
+<script src="{{asset('assets/js/scripts.bundle.js')}}"></script>
 
-    document.addEventListener('livewire:navigated', () => {
-        KTComponents.init();
-    })
 
-</script>
 
+
+@stack('myChart')
 
 </body>
 </html>

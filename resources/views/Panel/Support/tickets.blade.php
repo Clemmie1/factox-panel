@@ -49,10 +49,6 @@
 
             <div class="d-flex flex-column-fluid align-items-start  container-xxl ">
                 <div class="content flex-row-fluid">
-                    <button  type="button" class="btn btn-sm btn-secondary btn-icon align-self-center">
-                        <i class="las la-angle-left fs-2"></i>
-                    </button>
-
 
                     @livewire('panel.support.load-tickets', [
                         'lazy' => true,

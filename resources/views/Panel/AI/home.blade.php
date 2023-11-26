@@ -101,7 +101,7 @@
                                                 </div>--}}
                                                 <div class="card-footer">
                                                     {{--<button class="btn btn-lg btn-secondary w-100 text-uppercase" disabled>временно недоступен</button>--}}
-                                                    <button class="btn btn-lg btn-success w-100 text-uppercase">продлить</button>
+                                                    <button class="btn btn-lg w-100 btn-success disabled text-uppercase" disabled>Подключено</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -138,7 +138,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="card-footer">
-                                                    <button class="btn btn-lg btn-secondary w-100 text-uppercase" disabled>временно недоступен</button>
+                                                    <button class="btn btn-lg w-100 btn-success disabled text-uppercase" disabled>Подключено</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -169,7 +169,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="card-footer">
-                                                    <button class="btn btn-lg btn-secondary w-100 text-uppercase">Подключить</button>
+                                                    <button class="btn btn-lg btn-secondary w-100 text-uppercase" disabled>временно недоступен</button>
                                                 </div>
                                             </div>
                                         </div>
