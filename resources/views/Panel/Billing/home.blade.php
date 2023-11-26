@@ -42,36 +42,36 @@
 
         @include('Components.Panel.asideBar')
 
+
         <div class="wrapper d-flex flex-column flex-row-fluid" >
 
             @include('Components.Panel.header')
 
-            {{--            <div class="toolbar d-flex flex-stack py-3 py-lg-5" id="kt_toolbar">
+                        <div class="toolbar d-flex flex-stack py-3 py-lg-5" id="kt_toolbar">
                             <div id="kt_toolbar_container" class=" container-xxl  d-flex flex-stack flex-wrap">
 
 
                                 <div class="page-title d-flex flex-column me-3">
                                     <h1 class="d-flex text-dark fw-bold my-1 fs-3">
-                                        Хостинг
+                                        Текущий платежный баланс
                                     </h1>
-                                    <ul class="breadcrumb breadcrumb-dot fw-semibold text-gray-600 fs-7 my-1">
-                                        <li class="breadcrumb-item text-gray-600">
-                                            <a href="/metronic8/demo18/../demo18/index.html" class="text-gray-600 text-hover-primary">
-                                                Главная
-                                            </a>
-                                        </li>
-                                        <li class="breadcrumb-item text-gray-600">
-                                            Хостинг
-                                        </li>
-                                    </ul>
+                                    <div class="text-gray-600 fs-4">
+                                        Баланс {{ Auth::user()->balance }} руб.
+                                        <br>
+                                        @php(
+                                            $totalAmount = App\Models\Invoice::query()->where(DB::raw('DATE_FORMAT(created_at, "%Y-%m")'), date('Y-m'))
+                                            ->sum('item_price')
+                                        )
+                                        Списано за месяц {{ $totalAmount == 0 ? '0.00' : $totalAmount }} руб.
+                                    </div>
                                 </div>
                                 <div class="d-flex align-items-center py-2">
                                     <a href="#" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app" id="kt_toolbar_primary_button">
-                                        Создать
+                                        Пополнить баланс
                                     </a>
                                 </div>
                             </div>
-                        </div>--}}
+                        </div>
 
             <div class="d-flex flex-column-fluid align-items-start  container-xxl ">
                 <div class="content flex-row-fluid " >

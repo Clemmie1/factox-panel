@@ -28,7 +28,6 @@
                 themeMode = localStorage.getItem("data-bs-theme");
             } else {
                 themeMode = defaultThemeMode;
-
             }
         }
 
@@ -43,10 +42,10 @@
 <div class="d-flex flex-column flex-root">
 
     <div class="d-flex flex-column flex-lg-row flex-column-fluid">
-
         <div class="d-flex flex-column flex-lg-row-fluid w-lg-50 p-10 order-2 order-lg-1">
             <div class="d-flex flex-center flex-column flex-lg-row-fluid">
-                <div class="w-500px p-10">
+
+                <div class="w-lg-500px p-10">
 
                     <livewire:auth.login>
 
@@ -56,8 +55,9 @@
             </div>
         </div>
     </div>
+
 </div>
-</body>
+
 @livewireScripts
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

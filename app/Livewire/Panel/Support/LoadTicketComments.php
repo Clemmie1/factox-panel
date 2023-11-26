@@ -31,13 +31,20 @@ class LoadTicketComments extends Component
         if ($this->msg == null){
             return;
         }
-
         SupportTicketComment::create([
            'ticket_id' => $this->ticketID,
            'sender' => 0,
            'msg' => $this->msg,
         ]);
+        $this->reset('msg');
+        $this->mount();
+    }
 
+    public function continue_communication()
+    {
+        SupportTicket::where('ticket_id', $this->ticketID)->update([
+            'ticket_status' => 0
+        ]);
         $this->mount();
     }
 

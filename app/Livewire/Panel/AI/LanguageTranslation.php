@@ -23,12 +23,7 @@ class LanguageTranslation extends Component
         {
             $get = \App\Http\Controllers\OCI\AI\LanguageTranslation::textTranslation($this->text, 'en', 'ru');
             $this->translatedText = $get['documents'][0]['translatedText'];
-            $this->alert('success', "<a class='text-muted' style='font-weight: bold;'>request ok. ".$get['documents'][0]['key']."</a>", [
-                'position' => 'bottom-end',
-                'timer' => 3000,
-                'width' => '300',
-                'toast' => true,
-            ]);
+
         }
 
     }

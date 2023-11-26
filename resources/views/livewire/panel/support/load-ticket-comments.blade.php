@@ -21,12 +21,12 @@
                                     <div class="d-flex align-items-center f">
                                         <div class="symbol symbol-50px me-5">
                                             <div class="symbol-label fs-1 fw-bold bg-light-success text-success">
-                                                К
+                                                В
                                             </div>
                                         </div>
                                         <div class="d-flex flex-column fw-semibold fs-5 text-gray-600 text-dark">
                                             <div class="d-flex align-items-center">
-                                                <a class="text-gray-800 fw-bold text-hover-primary fs-5 me-3">Клиент</a>
+                                                <a class="text-gray-800 fw-bold text-hover-primary fs-5 me-3">Вы</a>
                                                 <span class="m-0"></span>
                                             </div>
                                             <span class="text-muted fw-semibold fs-6">{{ \Carbon\Carbon::parse($list->created_at)->diffForHumans() }}</span>
@@ -48,12 +48,12 @@
                                     <div class="d-flex align-items-center f">
                                         <div class="symbol symbol-50px me-5">
                                             <div class="symbol-label fs-1 fw-bold bg-light-primary text-primary">
-                                                F
+                                                СП
                                             </div>
                                         </div>
                                         <div class="d-flex flex-column fw-semibold fs-5 text-gray-600 text-dark">
                                             <div class="d-flex align-items-center">
-                                                <a class="text-gray-800 fw-bold text-hover-primary fs-5 me-3">FactoX</a>
+                                                <a class="text-gray-800 fw-bold text-hover-primary fs-5 me-3">Сотрудник поддержки</a>
                                                 <span class="m-0"></span>
                                             </div>
                                             <span class="text-muted fw-semibold fs-6">{{ \Carbon\Carbon::parse($list->created_at)->diffForHumans() }}</span>
@@ -104,20 +104,27 @@
             <div class="d-flex flex-column mt-6">
                 <li class="d-flex align-items-center py-2">
                     <span class="bullet text-warning bullet-line h-20px w-6px rounded-1 bg-warning me-3"></span>
-                    <span class="text-muted">Помните, что Поддержка никогда не попросит данные вашего аккаунта, они ей просто не нужны.</span>
+                    <span class="text-muted">Помните, что Сотрудник поддержки никогда не попросит данные вашего аккаунта.</span>
                 </li>
             </div>
         </div>
     @elseif($ticketData->ticket_status == 2)
-        <div class="alert alert-success d-flex align-items-center p-5">
-            <i class="las la-check-circle fs-2hx text-success me-4"><span class="path1"></span><span class="path2"></span></i>
+        <div class="rounded alert-success d-flex align-items-center p-5">
+            <i class="las la-check-circle fs-2hx text-success me-4"></i>
             <div class="d-flex flex-column">
                 <h4 class="mb-1 text-success">Обращение решено</h4>
-                <span>Мы успешно решили ваш запрос. Спасибо за обращение!</span>
+                <span>
+                    Мы успешно решили ваш запрос. Спасибо за обращение!
+                </span>
             </div>
         </div>
+        <div class="text-center mt-10">
+            <button class="btn btn-secondary text-uppercase" wire:click="continue_communication">
+                Продолжить общение с Сп
+            </button>
+        </div>
     @elseif($ticketData->ticket_status == 3)
-        <div class="alert alert-danger d-flex align-items-center p-5">
+        <div class="rounded alert-danger d-flex align-items-center p-5">
             <i class="las la-times-circle fs-2hx text-danger me-4"></i>
             <div class="d-flex flex-column">
                 <h4 class="mb-1 text-danger">Обращение закрыто</h4>

@@ -12,7 +12,7 @@
                     @if(Route::is('cloud.StorageObject.home'))
                         <a style="cursor: not-allowed" class="menu-link disabled"><span class="menu-icon"><i class="fa-duotone fa-box-archive fs-2"></i></span><span class="menu-title">Хранилище объектов</span></a>
                     @else
-                        <a href="{{route('cloud.StorageObject.home')}}" class="menu-link" ><span class="menu-icon"><i class="fa-duotone fa-box-archive fs-2"></i></span><span class="menu-title">Хранилище объектов</span></a>
+                        <a onclick="location.href='{{route('cloud.StorageObject.home')}}'" class="menu-link" ><span class="menu-icon"><i class="fa-duotone fa-box-archive fs-2"></i></span><span class="menu-title">Хранилище объектов</span></a>
                     @endif
                 </div>
 
@@ -20,7 +20,7 @@
                     @if(Route::is('cloud.db.home'))
                         <a style="cursor: not-allowed" class="menu-link disabled"><span class="menu-icon"><i class="fa-duotone fa-database fs-2"></i></span><span class="menu-title">База данных</span></a>
                     @else
-                        <a href="{{route('cloud.db.home')}}" class="menu-link" ><span class="menu-icon"><i class="fa-duotone fa-database fs-2"></i></span><span class="menu-title">База данных</span></a>
+                        <a onclick="location.href='{{route('cloud.db.home')}}'" class="menu-link" ><span class="menu-icon"><i class="fa-duotone fa-database fs-2"></i></span><span class="menu-title">База данных</span></a>
                     @endif
                 </div>
 
@@ -40,7 +40,7 @@
                     @if(Route::is('cloud.vpn.home'))
                         <a style="cursor: not-allowed" class="menu-link disabled"><span class="menu-icon"><i class="fa-duotone fa-network-wired fs-2"></i></span><span class="menu-title">VPN</span></a>
                     @else
-                        <a href="{{route('cloud.vpn.home')}}" class="menu-link" ><span class="menu-icon"><i class="fa-duotone fa-network-wired fs-2"></i></span><span class="menu-title">VPN</span></a>
+                        <a onclick="location.href='{{route('cloud.vpn.home')}}'" class="menu-link" ><span class="menu-icon"><i class="fa-duotone fa-network-wired fs-2"></i></span><span class="menu-title">VPN</span></a>
                     @endif
                 </div>
 
@@ -104,16 +104,16 @@
                         </span>
                     <div class="menu-sub menu-sub-accordion" style="display: none; overflow: hidden;" kt-hidden-height="190">
                         <div class="menu-item">
-                            <a href="{{route('cloud.ai.home')}}" class="menu-link" ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Главная</span></a><!--end:Menu link-->
+                            <a onclick="location.href='{{route('cloud.ai.home')}}'" class="menu-link" ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Главная</span></a><!--end:Menu link-->
                         </div>
                         <div class="menu-item">
-                            <a href="{{route('cloud.ai.LanguageTranslation')}}" class="menu-link" ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Перевод текста</span></a><!--end:Menu link-->
+                            <a onclick="location.href='{{route('cloud.ai.LanguageTranslation')}}'" class="menu-link" ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Перевод текста</span></a><!--end:Menu link-->
                         </div>
                         <div class="menu-item">
-                            <a href="{{route('cloud.ai.LanguagePretrained')}}" class="menu-link" ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Предварительно обученные модели</span></a><!--end:Menu link-->
+                            <a onclick="location.href='{{route('cloud.ai.LanguagePretrained')}}'" class="menu-link" ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Предварительно обученные модели</span></a><!--end:Menu link-->
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link" ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Концепция развития</span></a><!--end:Menu link-->
+                            <a onclick="location.href=''" class="menu-link" ><span class="menu-bullet"><span class="bullet bullet-dot"></span></span><span class="menu-title">Концепция развития</span></a><!--end:Menu link-->
                         </div>
                     </div>
                 </div>
@@ -125,14 +125,21 @@
                 </div>
 
                 <div class="menu-item">
-                    <a class="menu-link" href="https://preview.keenthemes.com/html/metronic/docs/base/utilities">
-                        <span class="menu-icon"><i class="fa-duotone fa-ticket fs-2"></i></span>
-                        <span class="menu-title">Запросы</span>
-                    </a>
+                    @if(Route::is('support.tickets'))
+                        <a style="cursor: not-allowed" class="menu-link disabled">
+                            <span class="menu-icon"><i class="fa-duotone fa-ticket fs-2"></i></span>
+                            <span class="menu-title">Запросы</span>
+                        </a>
+                    @else
+                        <a onclick="location.href='{{route('support.tickets')}}'" class="menu-link" >
+                            <span class="menu-icon"><i class="fa-duotone fa-ticket fs-2"></i></span>
+                            <span class="menu-title">Запросы</span>
+                        </a>
+                    @endif
                 </div>
 
                 <div class="menu-item">
-                    <a class="menu-link" href="https://preview.keenthemes.com/html/metronic/docs/base/utilities">
+                    <a style="cursor: not-allowed" class="menu-link disabled" >
                         <span class="menu-icon"><i class="fa-duotone fa-circle-info fs-2"></i></span>
                         <span class="menu-title">База знаний</span>
                     </a>
