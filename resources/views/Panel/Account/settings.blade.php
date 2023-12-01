@@ -160,6 +160,20 @@
 
                     </div>
 
+                    {{--<div class="card mb-5 mb-xl-10">
+
+                        <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_deactivate" aria-expanded="true" aria-controls="kt_account_deactivate">
+                            <div class="card-title m-0">
+                                <h3 class="fw-bold m-0">Контакт домена</h3>
+                            </div>
+                            <div class="card-toolbar">
+                                <button class="btn btn-secondary btn-sm" disabled>
+                                    Создать
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>--}}
 
                 </div>
             </div>

@@ -37,6 +37,10 @@
                 </div>
 
                 <div class="menu-item">
+                    <a class="menu-link"><span class="menu-icon"><i class="fa-duotone fa-globe fs-2"></i></span><span class="menu-title">Домены</span></a>
+                </div>
+
+                <div class="menu-item">
                     @if(Route::is('cloud.vpn.home'))
                         <a style="cursor: not-allowed" class="menu-link disabled"><span class="menu-icon"><i class="fa-duotone fa-network-wired fs-2"></i></span><span class="menu-title">VPN</span></a>
                     @else
